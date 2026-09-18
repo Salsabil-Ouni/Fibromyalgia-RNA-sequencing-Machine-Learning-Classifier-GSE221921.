@@ -1,0 +1,2 @@
+ttest_auc,ttest_auc_ci_lo,ttest_auc_ci_hi,mannwhitney_auc,paired_bootstrap_diff_mean,paired_bootstrap_diff_ci_lo,paired_bootstrap_diff_ci_hi,diff_ci_excludes_zero
+0.8567428315412188,0.801209880601338,0.9065638212590993,0.8207885304659499,0.03615156116622478,0.006008425835902326,0.06854163927628694,True

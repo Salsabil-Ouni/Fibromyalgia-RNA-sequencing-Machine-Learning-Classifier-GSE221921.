@@ -1,0 +1,13 @@
+# Python environment (rebuild with: python -m venv .venv && pip install -r requirements.txt)
+.venv/
+__pycache__/
+*.pyc
+.git
+# Data  regenerate via scripts/01_parse_data.py and scripts/02_qc_preprocess.py.
+# See data/README.md for exact GEO download URLs, download date, and checksums.
+data/raw/
+data/processed/
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db

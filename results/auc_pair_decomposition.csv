@@ -1,0 +1,8 @@
+pair_type,n_fm,n_control,n_pairs,concordance_rate
+FF (FM-female vs Control-female),91.0,41.0,3731,0.7756633610292147
+MM (FM-male vs Control-male),5.0,52.0,260,0.5923076923076923
+cross: FM-female vs Control-male,91.0,52.0,4732,0.8841927303465765
+cross: FM-male vs Control-female,5.0,41.0,205,0.4682926829268293
+ALL within-sex (FF + MM combined),,,3991,0.7637183663242295
+ALL cross-sex (both directions combined),,,4937,0.8669232327324286
+ALL pairs (should equal pooled AUC),,,8928,0.8207885304659498

@@ -1,0 +1,2 @@
+moderated_ttest_auc,moderated_ttest_auc_ci_lo,moderated_ttest_auc_ci_hi,mannwhitney_auc,paired_bootstrap_diff_mean,paired_bootstrap_diff_ci_lo,paired_bootstrap_diff_ci_hi,diff_ci_excludes_zero
+0.8220206093189965,0.7568201560859491,0.8829800471743526,0.8207885304659499,0.0013153873110521906,-0.039892424921559866,0.0442506951696716,False

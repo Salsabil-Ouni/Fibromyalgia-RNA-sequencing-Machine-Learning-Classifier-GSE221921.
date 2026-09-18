@@ -1,0 +1,718 @@
+2026-08-29 14:03:01,558 | 01_parse_data | INFO | Loading GSE221921_FM_ProcessedData.xlsx (this is large; may take a minute)...
+2026-08-29 14:03:02,518 | 01_parse_data | INFO | Parsed 'Metadata (Samples)': 189 samples
+2026-08-29 14:03:30,438 | 01_parse_data | INFO | Parsed 'Values (FPKM)': 103810 genes x 189 samples
+2026-08-29 14:03:30,561 | 01_parse_data | INFO | xlsx sheet label counts: FM=0 Control=93
+2026-08-29 14:03:30,561 | 01_parse_data | INFO | series-matrix label counts: FM=96 Control=93
+2026-08-29 14:03:30,561 | 01_parse_data | WARNING | DISCREPANCY vs paper (96 FM / 93 control) or between the two GEO metadata sources. xlsx: FM=0 Control=93 | series-matrix: FM=96 Control=93. Proceeding with the xlsx 'Metadata (Samples)' sheet as the label source of truth (it is keyed by the same Sample_XXX ids as the expression matrix); this discrepancy is recorded here and must be repeated in the write-up.
+2026-08-29 14:03:30,579 | 01_parse_data | INFO | Sex fields agree between xlsx and series-matrix for all joined samples.
+2026-08-29 14:04:18,957 | 01_parse_data | INFO | Wrote expression_fpkm.csv, gene_metadata.csv, sample_metadata.csv to data/processed/
+2026-08-29 14:05:23,665 | 01_parse_data | INFO | Loading GSE221921_FM_ProcessedData.xlsx (this is large; may take a minute)...
+2026-08-29 14:05:24,482 | 01_parse_data | INFO | Parsed 'Metadata (Samples)': 189 samples
+2026-08-29 14:05:50,893 | 01_parse_data | INFO | Parsed 'Values (FPKM)': 103810 genes x 189 samples
+2026-08-29 14:05:51,008 | 01_parse_data | INFO | xlsx sheet label counts: FM=96 Control=93
+2026-08-29 14:05:51,008 | 01_parse_data | INFO | series-matrix label counts: FM=96 Control=93
+2026-08-29 14:05:51,008 | 01_parse_data | INFO | Sample counts match the paper (96 FM / 93 control) and agree between sources.
+2026-08-29 14:05:51,021 | 01_parse_data | INFO | Sex fields agree between xlsx and series-matrix for all joined samples.
+2026-08-29 14:06:39,643 | 01_parse_data | INFO | Wrote expression_fpkm.csv, gene_metadata.csv, sample_metadata.csv to data/processed/
+2026-08-29 14:08:47,883 | 02_qc_preprocess | INFO | Loaded expression matrix: 189 samples x 103810 genes
+2026-08-29 14:08:47,883 | 02_qc_preprocess | INFO | Sample counts: FM=96, Control=93 (paper: 96 FM / 93 Control)
+2026-08-29 14:08:47,883 | 02_qc_preprocess | INFO | No duplicate sample IDs.
+2026-08-29 14:08:47,920 | 02_qc_preprocess | INFO | Missing values in expression matrix: 15478155
+2026-08-29 14:08:47,982 | 02_qc_preprocess | WARNING | Dropped 81895 genes containing any missing value (103810 -> 21915).
+2026-08-29 14:08:48,005 | 02_qc_preprocess | INFO | Dropped 0 / 21915 genes with FPKM==0 in >90% of samples (21915 genes remain).
+2026-08-29 14:08:48,059 | 02_qc_preprocess | INFO | Applied log2(FPKM + 1) transform.
+2026-08-29 14:08:55,191 | 02_qc_preprocess | INFO | Wrote expression_log2_filtered.csv (189 x 21915) and sample_metadata_qc.csv
+2026-08-29 14:08:55,799 | 02_qc_preprocess | INFO | Saved figures/pca_qc.png
+2026-08-29 14:21:10,606 | 01_parse_data | INFO | Loading GSE221921_FM_ProcessedData.xlsx (this is large; may take a minute)...
+2026-08-29 14:21:11,358 | 01_parse_data | INFO | Parsed 'Metadata (Samples)': 189 samples
+2026-08-29 14:21:38,428 | 01_parse_data | INFO | Parsed 'Values (FPKM)': 21915 genes x 189 samples (sheet reported 103810 data rows; 81895 trailing blank rows past the real data were discarded as an Excel sheet-dimension artifact, not missing biological data)
+2026-08-29 14:21:38,466 | 01_parse_data | INFO | xlsx sheet label counts: FM=96 Control=93
+2026-08-29 14:21:38,466 | 01_parse_data | INFO | series-matrix label counts: FM=96 Control=93
+2026-08-29 14:21:38,478 | 01_parse_data | INFO | Sample counts match the paper (96 FM / 93 control) and agree between sources.
+2026-08-29 14:21:38,486 | 01_parse_data | INFO | Sex fields agree between xlsx and series-matrix for all joined samples.
+2026-08-29 14:21:45,385 | 01_parse_data | INFO | Wrote expression_fpkm.csv, gene_metadata.csv, sample_metadata.csv to data/processed/
+2026-08-29 14:21:49,578 | 02_qc_preprocess | INFO | Loaded expression matrix: 189 samples x 21915 genes
+2026-08-29 14:21:49,579 | 02_qc_preprocess | INFO | Sample counts: FM=96, Control=93 (paper: 96 FM / 93 Control)
+2026-08-29 14:21:49,579 | 02_qc_preprocess | INFO | No duplicate sample IDs.
+2026-08-29 14:21:49,591 | 02_qc_preprocess | INFO | Missing values in expression matrix: 0
+2026-08-29 14:21:49,625 | 02_qc_preprocess | INFO | Dropped 0 / 21915 genes with FPKM==0 in >90% of samples (21915 genes remain).
+2026-08-29 14:21:49,701 | 02_qc_preprocess | INFO | Applied log2(FPKM + 1) transform.
+2026-08-29 14:21:58,273 | 02_qc_preprocess | INFO | Wrote expression_log2_filtered.csv (189 x 21915) and sample_metadata_qc.csv
+2026-08-29 14:21:58,757 | 02_qc_preprocess | INFO | Saved figures/pca_qc.png
+2026-08-29 14:23:44,310 | 03_nested_cv | INFO | === Environment / reproducibility record ===
+2026-08-29 14:23:44,310 | 03_nested_cv | INFO | Python: 3.10.9
+2026-08-29 14:23:44,310 | 03_nested_cv | INFO | SEED (numpy, sklearn splitters, xgboost): 42
+2026-08-29 14:23:44,310 | 03_nested_cv | INFO | pandas=2.2.2 numpy=1.26.4 scikit-learn=1.4.2 scipy=1.13.0
+2026-08-29 14:23:44,311 | 03_nested_cv | INFO | xgboost=2.0.3 shap=0.45.1 matplotlib=3.8.4
+2026-08-29 14:23:45,863 | 03_nested_cv | INFO | Modeling matrix: X=(189, 21915), y positive (FM)=96, negative (Control)=93
+2026-08-29 14:23:45,863 | 03_nested_cv | INFO | === Nested CV: logreg ===
+2026-08-29 14:23:58,598 | 03_nested_cv | INFO | [logreg] outer fold 1/5: AUC=0.731 PR-AUC=0.812 sens=0.550 spec=0.833 acc=0.684 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200} (12.7s)
+2026-08-29 14:24:10,527 | 03_nested_cv | INFO | [logreg] outer fold 2/5: AUC=0.895 PR-AUC=0.917 sens=0.789 spec=0.737 acc=0.763 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 100} (11.9s)
+2026-08-29 14:24:22,434 | 03_nested_cv | INFO | [logreg] outer fold 3/5: AUC=0.870 PR-AUC=0.903 sens=0.842 spec=0.737 acc=0.789 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200} (11.9s)
+2026-08-29 14:24:34,451 | 03_nested_cv | INFO | [logreg] outer fold 4/5: AUC=0.842 PR-AUC=0.854 sens=0.789 spec=0.842 acc=0.816 best_params={'clf__C': 1, 'clf__penalty': 'l1', 'select__k': 50} (12.0s)
+2026-08-29 14:24:46,782 | 03_nested_cv | INFO | [logreg] outer fold 5/5: AUC=0.804 PR-AUC=0.856 sens=0.684 spec=0.667 acc=0.676 best_params={'clf__C': 0.1, 'clf__penalty': 'l2', 'select__k': 200} (12.3s)
+2026-08-29 14:24:54,647 | 03_nested_cv | INFO | === Nested CV: xgboost ===
+2026-08-29 14:25:12,915 | 03_nested_cv | INFO | [xgboost] outer fold 1/5: AUC=0.736 PR-AUC=0.815 sens=0.650 spec=0.833 acc=0.737 best_params={'clf__learning_rate': 0.05, 'clf__max_depth': 2, 'clf__n_estimators': 200, 'select__k': 200} (18.3s)
+2026-08-29 14:25:27,163 | 03_nested_cv | INFO | [xgboost] outer fold 2/5: AUC=0.884 PR-AUC=0.892 sens=0.684 spec=0.842 acc=0.763 best_params={'clf__learning_rate': 0.1, 'clf__max_depth': 2, 'clf__n_estimators': 200, 'select__k': 200} (14.2s)
+2026-08-29 14:25:40,986 | 03_nested_cv | INFO | [xgboost] outer fold 3/5: AUC=0.842 PR-AUC=0.875 sens=0.737 spec=0.684 acc=0.711 best_params={'clf__learning_rate': 0.05, 'clf__max_depth': 2, 'clf__n_estimators': 100, 'select__k': 100} (13.8s)
+2026-08-29 14:25:54,387 | 03_nested_cv | INFO | [xgboost] outer fold 4/5: AUC=0.889 PR-AUC=0.901 sens=0.789 spec=0.737 acc=0.763 best_params={'clf__learning_rate': 0.05, 'clf__max_depth': 3, 'clf__n_estimators': 200, 'select__k': 50} (13.4s)
+2026-08-29 14:26:07,384 | 03_nested_cv | INFO | [xgboost] outer fold 5/5: AUC=0.804 PR-AUC=0.869 sens=0.684 spec=0.722 acc=0.703 best_params={'clf__learning_rate': 0.05, 'clf__max_depth': 3, 'clf__n_estimators': 200, 'select__k': 100} (13.0s)
+2026-08-29 14:26:17,838 | 03_nested_cv | INFO | Wrote results/performance_summary.csv
+2026-08-29 14:26:17,841 | 03_nested_cv | INFO | Wrote results/outer_fold_predictions.csv
+2026-08-29 14:26:17,841 | 03_nested_cv | INFO | SUMMARY logreg: AUC=0.821 [0.756, 0.880]  PR-AUC=0.841 [0.764, 0.908]
+2026-08-29 14:26:17,841 | 03_nested_cv | INFO | SUMMARY xgboost: AUC=0.825 [0.766, 0.880]  PR-AUC=0.864 [0.810, 0.913]
+2026-08-29 14:33:42,328 | 04_permutation_test | INFO | Computing real (non-permuted) nested-CV AUC with the reduced permutation-test grid (this differs slightly from the full-grid AUC in performance_summary.csv; used only as the reference point for the null comparison).
+2026-08-29 14:33:52,839 | 04_permutation_test | INFO | Reduced-grid real AUC = 0.8272
+2026-08-29 14:34:01,262 | 04_permutation_test | INFO | Permutation 1/30: AUC=0.4901 (8.4s)
+2026-08-29 14:34:05,879 | 05_shap_explain | INFO | Best model family by nested-CV AUC: xgboost (see performance_summary.csv for the locked-in CV estimate; this script's own internal CV score below is NOT that estimate and must not be reported as one).
+2026-08-29 14:34:10,854 | 04_permutation_test | INFO | Permutation 2/30: AUC=0.4908 (9.6s)
+2026-08-29 14:34:31,980 | 04_permutation_test | INFO | Permutation 3/30: AUC=0.3976 (21.1s)
+2026-08-29 14:34:34,693 | 05_shap_explain | INFO | Refit xgboost on full dataset for interpretation. best_params={'clf__learning_rate': 0.1, 'clf__max_depth': 3, 'clf__n_estimators': 100, 'select__k': 50}, full-data CV AUC=0.841 (interpretation-only number, not a held-out estimate)
+2026-08-29 14:34:34,708 | 05_shap_explain | INFO | Computing SHAP values for 50 selected features...
+2026-08-29 14:34:34,837 | 05_shap_explain | INFO | Wrote results/shap_feature_importance.csv (50 genes, model=xgboost)
+2026-08-29 14:34:36,274 | 05_shap_explain | INFO | Wrote figures/shap_summary.png
+2026-08-29 14:34:37,109 | 05_shap_explain | INFO | Wrote figures/shap_dependence_top_genes.png
+2026-08-29 14:34:40,433 | 04_permutation_test | INFO | Permutation 4/30: AUC=0.3805 (8.4s)
+2026-08-29 14:34:47,001 | 04_permutation_test | INFO | Permutation 5/30: AUC=0.5608 (6.6s)
+2026-08-29 14:34:53,268 | 04_permutation_test | INFO | Permutation 6/30: AUC=0.4887 (6.3s)
+2026-08-29 14:34:59,633 | 04_permutation_test | INFO | Permutation 7/30: AUC=0.4861 (6.4s)
+2026-08-29 14:35:06,135 | 04_permutation_test | INFO | Permutation 8/30: AUC=0.5529 (6.5s)
+2026-08-29 14:35:12,471 | 04_permutation_test | INFO | Permutation 9/30: AUC=0.5379 (6.3s)
+2026-08-29 14:35:18,801 | 04_permutation_test | INFO | Permutation 10/30: AUC=0.5498 (6.3s)
+2026-08-29 14:35:25,729 | 04_permutation_test | INFO | Permutation 11/30: AUC=0.4592 (6.9s)
+2026-08-29 14:35:32,439 | 04_permutation_test | INFO | Permutation 12/30: AUC=0.4285 (6.7s)
+2026-08-29 14:35:39,095 | 04_permutation_test | INFO | Permutation 13/30: AUC=0.5500 (6.7s)
+2026-08-29 14:35:45,416 | 04_permutation_test | INFO | Permutation 14/30: AUC=0.5538 (6.3s)
+2026-08-29 14:35:51,906 | 04_permutation_test | INFO | Permutation 15/30: AUC=0.3697 (6.5s)
+2026-08-29 14:35:58,293 | 04_permutation_test | INFO | Permutation 16/30: AUC=0.5334 (6.4s)
+2026-08-29 14:36:05,028 | 04_permutation_test | INFO | Permutation 17/30: AUC=0.4233 (6.7s)
+2026-08-29 14:36:11,682 | 04_permutation_test | INFO | Permutation 18/30: AUC=0.5360 (6.7s)
+2026-08-29 14:36:18,662 | 04_permutation_test | INFO | Permutation 19/30: AUC=0.5385 (7.0s)
+2026-08-29 14:36:25,573 | 04_permutation_test | INFO | Permutation 20/30: AUC=0.5692 (6.9s)
+2026-08-29 14:36:32,240 | 04_permutation_test | INFO | Permutation 21/30: AUC=0.5159 (6.7s)
+2026-08-29 14:36:38,883 | 04_permutation_test | INFO | Permutation 22/30: AUC=0.4143 (6.6s)
+2026-08-29 14:36:45,805 | 04_permutation_test | INFO | Permutation 23/30: AUC=0.4900 (6.9s)
+2026-08-29 14:36:52,509 | 04_permutation_test | INFO | Permutation 24/30: AUC=0.5373 (6.7s)
+2026-08-29 14:36:59,188 | 04_permutation_test | INFO | Permutation 25/30: AUC=0.4089 (6.7s)
+2026-08-29 14:37:06,089 | 04_permutation_test | INFO | Permutation 26/30: AUC=0.4988 (6.9s)
+2026-08-29 14:37:12,918 | 04_permutation_test | INFO | Permutation 27/30: AUC=0.6223 (6.8s)
+2026-08-29 14:37:19,310 | 04_permutation_test | INFO | Permutation 28/30: AUC=0.5153 (6.4s)
+2026-08-29 14:37:25,925 | 04_permutation_test | INFO | Permutation 29/30: AUC=0.6169 (6.6s)
+2026-08-29 14:37:32,170 | 04_permutation_test | INFO | Permutation 30/30: AUC=0.4234 (6.2s)
+2026-08-29 14:37:32,177 | 04_permutation_test | INFO | Null AUC distribution: mean=0.4980 std=0.0662 min=0.3697 max=0.6223
+2026-08-29 14:37:32,177 | 04_permutation_test | INFO | Real AUC=0.8272 vs. null. Empirical p-value = 0.0323 (fraction of permutations >= real)
+2026-08-29 14:37:32,344 | 04_permutation_test | INFO | Wrote results/permutation_null_distribution.csv and figures/permutation_null_distribution.png
+2026-08-29 14:40:41,011 | 06_pathway_crosscheck | INFO | top_n=20 pathway=FM1_ECM_RhoGDI_collagen_GP6: overlap=0/20 (pathway genes in background=35/21374 total), p=1.0000, genes=[]
+2026-08-29 14:40:41,011 | 06_pathway_crosscheck | INFO | top_n=20 pathway=FM2_CLEAR_lysosomal: overlap=0/20 (pathway genes in background=23/21374 total), p=1.0000, genes=[]
+2026-08-29 14:40:41,011 | 06_pathway_crosscheck | INFO | top_n=20 pathway=FM3_FM4_interferon_JAKSTAT: overlap=0/20 (pathway genes in background=19/21374 total), p=1.0000, genes=[]
+2026-08-29 14:40:41,012 | 06_pathway_crosscheck | INFO | top_n=30 pathway=FM1_ECM_RhoGDI_collagen_GP6: overlap=0/30 (pathway genes in background=35/21374 total), p=1.0000, genes=[]
+2026-08-29 14:40:41,012 | 06_pathway_crosscheck | INFO | top_n=30 pathway=FM2_CLEAR_lysosomal: overlap=0/30 (pathway genes in background=23/21374 total), p=1.0000, genes=[]
+2026-08-29 14:40:41,012 | 06_pathway_crosscheck | INFO | top_n=30 pathway=FM3_FM4_interferon_JAKSTAT: overlap=0/30 (pathway genes in background=19/21374 total), p=1.0000, genes=[]
+2026-08-29 14:40:41,012 | 06_pathway_crosscheck | INFO | top_n=50 pathway=FM1_ECM_RhoGDI_collagen_GP6: overlap=0/50 (pathway genes in background=35/21374 total), p=1.0000, genes=[]
+2026-08-29 14:40:41,012 | 06_pathway_crosscheck | INFO | top_n=50 pathway=FM2_CLEAR_lysosomal: overlap=0/50 (pathway genes in background=23/21374 total), p=1.0000, genes=[]
+2026-08-29 14:40:41,012 | 06_pathway_crosscheck | INFO | top_n=50 pathway=FM3_FM4_interferon_JAKSTAT: overlap=0/50 (pathway genes in background=19/21374 total), p=1.0000, genes=[]
+2026-08-29 14:40:41,013 | 06_pathway_crosscheck | INFO | top_n=100 pathway=FM1_ECM_RhoGDI_collagen_GP6: overlap=0/50 (pathway genes in background=35/21374 total), p=1.0000, genes=[]
+2026-08-29 14:40:41,013 | 06_pathway_crosscheck | INFO | top_n=100 pathway=FM2_CLEAR_lysosomal: overlap=0/50 (pathway genes in background=23/21374 total), p=1.0000, genes=[]
+2026-08-29 14:40:41,013 | 06_pathway_crosscheck | INFO | top_n=100 pathway=FM3_FM4_interferon_JAKSTAT: overlap=0/50 (pathway genes in background=19/21374 total), p=1.0000, genes=[]
+2026-08-29 14:40:41,019 | 06_pathway_crosscheck | INFO | Wrote results/top_features_vs_original_pathways.csv
+2026-08-29 14:40:41,020 | 06_pathway_crosscheck | INFO | No top-N/pathway combination reaches nominal significance (p<0.05, uncorrected). This is reported honestly as a weak/absent overlap, not hidden.
+2026-08-29 14:55:51,562 | 07_feature_stability | INFO | Repeat 1/10 done (27.9s)
+2026-08-29 14:56:16,807 | 07_feature_stability | INFO | Repeat 2/10 done (25.2s)
+2026-08-29 14:56:42,322 | 07_feature_stability | INFO | Repeat 3/10 done (25.5s)
+2026-08-29 14:57:06,714 | 07_feature_stability | INFO | Repeat 4/10 done (24.4s)
+2026-08-29 14:57:31,071 | 07_feature_stability | INFO | Repeat 5/10 done (24.4s)
+2026-08-29 14:57:57,670 | 07_feature_stability | INFO | Repeat 6/10 done (26.6s)
+2026-08-29 14:58:23,635 | 07_feature_stability | INFO | Repeat 7/10 done (26.0s)
+2026-08-29 14:58:49,565 | 07_feature_stability | INFO | Repeat 8/10 done (25.9s)
+2026-08-29 14:59:14,985 | 07_feature_stability | INFO | Repeat 9/10 done (25.4s)
+2026-08-29 14:59:39,983 | 07_feature_stability | INFO | Repeat 10/10 done (25.0s)
+2026-08-29 14:59:40,069 | 07_feature_stability | INFO | Mean selection frequency of the SHAP top-30 genes = 0.851 (vs. 0.172 mean over all genes ever selected); 30/30 of the SHAP top genes were selected in >=50% of the 50 stability folds.
+2026-08-29 14:59:40,071 | 07_feature_stability | INFO | Stability summary: {'n_repeats': 10, 'n_outer_folds_per_repeat': 5, 'n_total_folds': 50, 'n_unique_genes_ever_selected': 839, 'mean_pairwise_jaccard': 0.29502260291722104, 'median_pairwise_jaccard': 0.2987012987012987, 'std_pairwise_jaccard': 0.07519976587121996, 'shap_top30_crosscheck': 'Mean selection frequency of the SHAP top-30 genes = 0.851 (vs. 0.172 mean over all genes ever selected); 30/30 of the SHAP top genes were selected in >=50% of the 50 stability folds.'}
+2026-08-29 14:59:40,297 | 07_feature_stability | INFO | Wrote results/feature_selection_stability.csv, results/feature_stability_summary.csv, figures/feature_stability.png
+2026-08-29 15:00:06,627 | 04_permutation_test | INFO | Computing real (non-permuted) nested-CV AUC with the reduced permutation-test grid (this differs slightly from the full-grid AUC in performance_summary.csv; used only as the reference point for the null comparison).
+2026-08-29 15:00:16,791 | 04_permutation_test | INFO | Reduced-grid real AUC = 0.8272
+2026-08-29 15:00:23,596 | 04_permutation_test | INFO | Permutation 1/100: AUC=0.4901 (6.8s)
+2026-08-29 15:00:30,593 | 04_permutation_test | INFO | Permutation 2/100: AUC=0.4908 (7.0s)
+2026-08-29 15:00:37,448 | 04_permutation_test | INFO | Permutation 3/100: AUC=0.3976 (6.9s)
+2026-08-29 15:00:44,495 | 04_permutation_test | INFO | Permutation 4/100: AUC=0.3805 (7.0s)
+2026-08-29 15:00:51,495 | 04_permutation_test | INFO | Permutation 5/100: AUC=0.5608 (7.0s)
+2026-08-29 15:00:58,508 | 04_permutation_test | INFO | Permutation 6/100: AUC=0.4887 (7.0s)
+2026-08-29 15:01:05,370 | 04_permutation_test | INFO | Permutation 7/100: AUC=0.4861 (6.9s)
+2026-08-29 15:01:11,857 | 04_permutation_test | INFO | Permutation 8/100: AUC=0.5529 (6.5s)
+2026-08-29 15:01:18,639 | 04_permutation_test | INFO | Permutation 9/100: AUC=0.5379 (6.8s)
+2026-08-29 15:01:25,528 | 04_permutation_test | INFO | Permutation 10/100: AUC=0.5498 (6.9s)
+2026-08-29 15:01:32,595 | 04_permutation_test | INFO | Permutation 11/100: AUC=0.4592 (7.1s)
+2026-08-29 15:01:39,152 | 04_permutation_test | INFO | Permutation 12/100: AUC=0.4285 (6.6s)
+2026-08-29 15:01:45,942 | 04_permutation_test | INFO | Permutation 13/100: AUC=0.5500 (6.8s)
+2026-08-29 15:01:52,390 | 04_permutation_test | INFO | Permutation 14/100: AUC=0.5538 (6.4s)
+2026-08-29 15:01:59,094 | 04_permutation_test | INFO | Permutation 15/100: AUC=0.3697 (6.7s)
+2026-08-29 15:02:05,810 | 04_permutation_test | INFO | Permutation 16/100: AUC=0.5334 (6.7s)
+2026-08-29 15:02:12,442 | 04_permutation_test | INFO | Permutation 17/100: AUC=0.4233 (6.6s)
+2026-08-29 15:02:18,933 | 04_permutation_test | INFO | Permutation 18/100: AUC=0.5360 (6.5s)
+2026-08-29 15:02:25,583 | 04_permutation_test | INFO | Permutation 19/100: AUC=0.5385 (6.7s)
+2026-08-29 15:02:33,273 | 04_permutation_test | INFO | Permutation 20/100: AUC=0.5692 (7.7s)
+2026-08-29 15:02:40,168 | 04_permutation_test | INFO | Permutation 21/100: AUC=0.5159 (6.9s)
+2026-08-29 15:02:46,995 | 04_permutation_test | INFO | Permutation 22/100: AUC=0.4143 (6.8s)
+2026-08-29 15:02:53,955 | 04_permutation_test | INFO | Permutation 23/100: AUC=0.4900 (7.0s)
+2026-08-29 15:03:01,202 | 04_permutation_test | INFO | Permutation 24/100: AUC=0.5373 (7.2s)
+2026-08-29 15:03:08,733 | 04_permutation_test | INFO | Permutation 25/100: AUC=0.4089 (7.5s)
+2026-08-29 15:03:15,749 | 04_permutation_test | INFO | Permutation 26/100: AUC=0.4988 (7.0s)
+2026-08-29 15:03:22,402 | 04_permutation_test | INFO | Permutation 27/100: AUC=0.6223 (6.7s)
+2026-08-29 15:03:29,262 | 04_permutation_test | INFO | Permutation 28/100: AUC=0.5153 (6.9s)
+2026-08-29 15:03:35,837 | 04_permutation_test | INFO | Permutation 29/100: AUC=0.6169 (6.6s)
+2026-08-29 15:03:42,388 | 04_permutation_test | INFO | Permutation 30/100: AUC=0.4234 (6.6s)
+2026-08-29 15:03:49,207 | 04_permutation_test | INFO | Permutation 31/100: AUC=0.3989 (6.8s)
+2026-08-29 15:03:56,065 | 04_permutation_test | INFO | Permutation 32/100: AUC=0.5305 (6.9s)
+2026-08-29 15:04:02,974 | 04_permutation_test | INFO | Permutation 33/100: AUC=0.5130 (6.9s)
+2026-08-29 15:04:09,607 | 04_permutation_test | INFO | Permutation 34/100: AUC=0.4992 (6.6s)
+2026-08-29 15:04:16,351 | 04_permutation_test | INFO | Permutation 35/100: AUC=0.4577 (6.7s)
+2026-08-29 15:04:23,026 | 04_permutation_test | INFO | Permutation 36/100: AUC=0.5175 (6.7s)
+2026-08-29 15:04:30,034 | 04_permutation_test | INFO | Permutation 37/100: AUC=0.4775 (7.0s)
+2026-08-29 15:04:36,908 | 04_permutation_test | INFO | Permutation 38/100: AUC=0.6063 (6.9s)
+2026-08-29 15:04:43,420 | 04_permutation_test | INFO | Permutation 39/100: AUC=0.5510 (6.5s)
+2026-08-29 15:04:50,145 | 04_permutation_test | INFO | Permutation 40/100: AUC=0.4460 (6.7s)
+2026-08-29 15:04:56,719 | 04_permutation_test | INFO | Permutation 41/100: AUC=0.5273 (6.6s)
+2026-08-29 15:05:03,438 | 04_permutation_test | INFO | Permutation 42/100: AUC=0.5402 (6.7s)
+2026-08-29 15:05:09,993 | 04_permutation_test | INFO | Permutation 43/100: AUC=0.4154 (6.6s)
+2026-08-29 15:05:16,979 | 04_permutation_test | INFO | Permutation 44/100: AUC=0.4222 (7.0s)
+2026-08-29 15:05:24,572 | 04_permutation_test | INFO | Permutation 45/100: AUC=0.4932 (7.6s)
+2026-08-29 15:05:32,235 | 04_permutation_test | INFO | Permutation 46/100: AUC=0.4627 (7.7s)
+2026-08-29 15:05:39,663 | 04_permutation_test | INFO | Permutation 47/100: AUC=0.4980 (7.4s)
+2026-08-29 15:05:47,772 | 04_permutation_test | INFO | Permutation 48/100: AUC=0.4066 (8.1s)
+2026-08-29 15:05:55,840 | 04_permutation_test | INFO | Permutation 49/100: AUC=0.5540 (8.1s)
+2026-08-29 15:06:03,459 | 04_permutation_test | INFO | Permutation 50/100: AUC=0.5365 (7.6s)
+2026-08-29 15:06:11,657 | 04_permutation_test | INFO | Permutation 51/100: AUC=0.5115 (8.2s)
+2026-08-29 15:06:19,228 | 04_permutation_test | INFO | Permutation 52/100: AUC=0.5433 (7.6s)
+2026-08-29 15:06:26,942 | 04_permutation_test | INFO | Permutation 53/100: AUC=0.5584 (7.7s)
+2026-08-29 15:06:35,134 | 04_permutation_test | INFO | Permutation 54/100: AUC=0.4437 (8.2s)
+2026-08-29 15:06:42,848 | 04_permutation_test | INFO | Permutation 55/100: AUC=0.5086 (7.7s)
+2026-08-29 15:06:50,526 | 04_permutation_test | INFO | Permutation 56/100: AUC=0.5501 (7.7s)
+2026-08-29 15:06:58,267 | 04_permutation_test | INFO | Permutation 57/100: AUC=0.5551 (7.7s)
+2026-08-29 15:07:05,875 | 04_permutation_test | INFO | Permutation 58/100: AUC=0.5486 (7.6s)
+2026-08-29 15:07:13,417 | 04_permutation_test | INFO | Permutation 59/100: AUC=0.5073 (7.5s)
+2026-08-29 15:07:20,579 | 04_permutation_test | INFO | Permutation 60/100: AUC=0.5500 (7.2s)
+2026-08-29 15:07:27,796 | 04_permutation_test | INFO | Permutation 61/100: AUC=0.5399 (7.2s)
+2026-08-29 15:07:35,425 | 04_permutation_test | INFO | Permutation 62/100: AUC=0.5346 (7.6s)
+2026-08-29 15:07:42,630 | 04_permutation_test | INFO | Permutation 63/100: AUC=0.4026 (7.2s)
+2026-08-29 15:07:50,365 | 04_permutation_test | INFO | Permutation 64/100: AUC=0.4745 (7.7s)
+2026-08-29 15:07:57,771 | 04_permutation_test | INFO | Permutation 65/100: AUC=0.5672 (7.4s)
+2026-08-29 15:08:05,668 | 04_permutation_test | INFO | Permutation 66/100: AUC=0.5666 (7.9s)
+2026-08-29 15:08:14,336 | 04_permutation_test | INFO | Permutation 67/100: AUC=0.4815 (8.7s)
+2026-08-29 15:08:21,906 | 04_permutation_test | INFO | Permutation 68/100: AUC=0.4271 (7.6s)
+2026-08-29 15:08:29,292 | 04_permutation_test | INFO | Permutation 69/100: AUC=0.4731 (7.4s)
+2026-08-29 15:08:36,940 | 04_permutation_test | INFO | Permutation 70/100: AUC=0.5731 (7.6s)
+2026-08-29 15:08:44,299 | 04_permutation_test | INFO | Permutation 71/100: AUC=0.4029 (7.4s)
+2026-08-29 15:08:51,564 | 04_permutation_test | INFO | Permutation 72/100: AUC=0.4227 (7.3s)
+2026-08-29 15:08:58,982 | 04_permutation_test | INFO | Permutation 73/100: AUC=0.5187 (7.4s)
+2026-08-29 15:09:06,692 | 04_permutation_test | INFO | Permutation 74/100: AUC=0.3634 (7.7s)
+2026-08-29 15:09:13,618 | 04_permutation_test | INFO | Permutation 75/100: AUC=0.4600 (6.9s)
+2026-08-29 15:09:20,821 | 04_permutation_test | INFO | Permutation 76/100: AUC=0.5301 (7.2s)
+2026-08-29 15:09:28,457 | 04_permutation_test | INFO | Permutation 77/100: AUC=0.3911 (7.6s)
+2026-08-29 15:09:36,067 | 04_permutation_test | INFO | Permutation 78/100: AUC=0.5466 (7.6s)
+2026-08-29 15:09:43,339 | 04_permutation_test | INFO | Permutation 79/100: AUC=0.5277 (7.3s)
+2026-08-29 15:09:50,620 | 04_permutation_test | INFO | Permutation 80/100: AUC=0.5356 (7.3s)
+2026-08-29 15:09:57,963 | 04_permutation_test | INFO | Permutation 81/100: AUC=0.4861 (7.3s)
+2026-08-29 15:10:05,571 | 04_permutation_test | INFO | Permutation 82/100: AUC=0.5298 (7.6s)
+2026-08-29 15:10:12,808 | 04_permutation_test | INFO | Permutation 83/100: AUC=0.5124 (7.2s)
+2026-08-29 15:10:20,367 | 04_permutation_test | INFO | Permutation 84/100: AUC=0.5364 (7.6s)
+2026-08-29 15:10:27,856 | 04_permutation_test | INFO | Permutation 85/100: AUC=0.5140 (7.5s)
+2026-08-29 15:10:36,242 | 04_permutation_test | INFO | Permutation 86/100: AUC=0.5327 (8.4s)
+2026-08-29 15:10:43,536 | 04_permutation_test | INFO | Permutation 87/100: AUC=0.5347 (7.3s)
+2026-08-29 15:10:50,547 | 04_permutation_test | INFO | Permutation 88/100: AUC=0.4876 (7.0s)
+2026-08-29 15:10:57,736 | 04_permutation_test | INFO | Permutation 89/100: AUC=0.4932 (7.2s)
+2026-08-29 15:11:05,264 | 04_permutation_test | INFO | Permutation 90/100: AUC=0.5407 (7.5s)
+2026-08-29 15:11:12,452 | 04_permutation_test | INFO | Permutation 91/100: AUC=0.4857 (7.2s)
+2026-08-29 15:11:19,679 | 04_permutation_test | INFO | Permutation 92/100: AUC=0.5476 (7.2s)
+2026-08-29 15:11:26,806 | 04_permutation_test | INFO | Permutation 93/100: AUC=0.5072 (7.1s)
+2026-08-29 15:11:34,284 | 04_permutation_test | INFO | Permutation 94/100: AUC=0.5841 (7.5s)
+2026-08-29 15:11:41,597 | 04_permutation_test | INFO | Permutation 95/100: AUC=0.6234 (7.3s)
+2026-08-29 15:11:48,672 | 04_permutation_test | INFO | Permutation 96/100: AUC=0.4369 (7.1s)
+2026-08-29 15:11:55,969 | 04_permutation_test | INFO | Permutation 97/100: AUC=0.4152 (7.3s)
+2026-08-29 15:12:03,429 | 04_permutation_test | INFO | Permutation 98/100: AUC=0.4680 (7.5s)
+2026-08-29 15:12:10,948 | 04_permutation_test | INFO | Permutation 99/100: AUC=0.5147 (7.5s)
+2026-08-29 15:12:18,122 | 04_permutation_test | INFO | Permutation 100/100: AUC=0.4990 (7.2s)
+2026-08-29 15:12:18,126 | 04_permutation_test | INFO | Null AUC distribution: mean=0.5006 std=0.0585 min=0.3634 max=0.6234
+2026-08-29 15:12:18,126 | 04_permutation_test | INFO | Real AUC=0.8272 vs. null. Empirical p-value = 0.0099 (fraction of permutations >= real)
+2026-08-29 15:12:18,302 | 04_permutation_test | INFO | Wrote results/permutation_null_distribution.csv and figures/permutation_null_distribution.png
+2026-08-29 15:13:41,196 | 08_featsel_robustness | INFO | t-test-selection outer fold 1/5: AUC=0.783 PR-AUC=0.853 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-08-29 15:13:45,460 | 08_featsel_robustness | INFO | t-test-selection outer fold 2/5: AUC=0.886 PR-AUC=0.901 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 50}
+2026-08-29 15:13:49,716 | 08_featsel_robustness | INFO | t-test-selection outer fold 3/5: AUC=0.878 PR-AUC=0.902 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-08-29 15:13:54,119 | 08_featsel_robustness | INFO | t-test-selection outer fold 4/5: AUC=0.873 PR-AUC=0.879 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-08-29 15:13:58,446 | 08_featsel_robustness | INFO | t-test-selection outer fold 5/5: AUC=0.851 PR-AUC=0.910 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 100}
+2026-08-29 15:13:58,454 | 08_featsel_robustness | INFO | Robustness check: Welch t-test feature selection AUC=0.857 vs. Mann-Whitney U AUC=0.821 (same logreg model family, same outer/inner CV structure). Difference=0.036.
+2026-08-29 15:13:58,454 | 08_featsel_robustness | INFO | Wrote results/performance_summary_ttest_robustness.csv
+2026-08-29 15:22:08,075 | 09_sex_confound_check | WARNING | Sex/label contingency table:
+sex      Female  Male
+label                
+Control      41    52
+FM           91     5
+2026-08-29 15:22:08,075 | 09_sex_confound_check | WARNING | Sex is NOT balanced between FM and Control (chi2 p=1.05e-13). This is a genuine confound risk for any classifier trained on the whole cohort.
+2026-08-29 15:22:08,086 | 09_sex_confound_check | WARNING | Sex-ONLY classifier (no gene expression) AUC = 0.727. The full gene-expression model's nested-CV AUC (~0.82-0.86, see performance_summary.csv) must be read relative to this floor, not relative to chance (0.5).
+2026-08-29 15:22:08,097 | 09_sex_confound_check | INFO | Female-only subset: n=132 (FM=91, Control=41)
+2026-08-29 15:22:17,702 | 09_sex_confound_check | INFO | [female-only] outer fold 1/5: AUC=0.678 PR-AUC=0.885 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-08-29 15:22:25,154 | 09_sex_confound_check | INFO | [female-only] outer fold 2/5: AUC=0.747 PR-AUC=0.898 best_params={'clf__C': 0.1, 'clf__penalty': 'l2', 'select__k': 200}
+2026-08-29 15:22:32,864 | 09_sex_confound_check | INFO | [female-only] outer fold 3/5: AUC=0.840 PR-AUC=0.934 best_params={'clf__C': 0.01, 'clf__penalty': 'l2', 'select__k': 100}
+2026-08-29 15:22:40,684 | 09_sex_confound_check | INFO | [female-only] outer fold 4/5: AUC=0.785 PR-AUC=0.904 best_params={'clf__C': 0.01, 'clf__penalty': 'l2', 'select__k': 200}
+2026-08-29 15:22:48,635 | 09_sex_confound_check | INFO | [female-only] outer fold 5/5: AUC=0.847 PR-AUC=0.940 best_params={'clf__C': 0.1, 'clf__penalty': 'l2', 'select__k': 200}
+2026-08-29 15:22:50,687 | 09_sex_confound_check | WARNING | Female-only nested-CV AUC = 0.783 [0.705, 0.858] (n=132, FM=91/Control=41) vs. whole-cohort AUC ~0.82 (confounded by sex) and sex-only-classifier floor of 0.727.
+2026-08-29 15:22:50,693 | 09_sex_confound_check | INFO | Wrote results/sex_confound_summary.csv and results/performance_summary_female_only.csv
+2026-08-29 15:25:16,124 | 10_calibration_check | INFO | logreg: Brier=0.1713 (base-rate-only baseline Brier=0.2499, lower is better, n=189, base_rate_FM=0.508)
+2026-08-29 15:25:16,129 | 10_calibration_check | INFO | xgboost: Brier=0.1935 (base-rate-only baseline Brier=0.2499, lower is better, n=189, base_rate_FM=0.508)
+2026-08-29 15:25:16,407 | 10_calibration_check | INFO | Wrote results/calibration_summary.csv and figures/calibration_curves.png
+2026-08-29 15:26:11,835 | 11_sexchrom_excluded_check | INFO | Excluding 851 / 21915 genes on chromosomes X or Y from the candidate feature pool (21064 remain, autosomal only).
+2026-08-29 15:26:24,599 | 11_sexchrom_excluded_check | INFO | [autosomal-only] outer fold 1/5: AUC=0.742 PR-AUC=0.795 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-08-29 15:26:35,364 | 11_sexchrom_excluded_check | INFO | [autosomal-only] outer fold 2/5: AUC=0.839 PR-AUC=0.869 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-08-29 15:26:45,993 | 11_sexchrom_excluded_check | INFO | [autosomal-only] outer fold 3/5: AUC=0.823 PR-AUC=0.880 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-08-29 15:26:57,287 | 11_sexchrom_excluded_check | INFO | [autosomal-only] outer fold 4/5: AUC=0.867 PR-AUC=0.879 best_params={'clf__C': 0.1, 'clf__penalty': 'l2', 'select__k': 200}
+2026-08-29 15:27:09,195 | 11_sexchrom_excluded_check | INFO | [autosomal-only] outer fold 5/5: AUC=0.863 PR-AUC=0.900 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-08-29 15:27:11,371 | 11_sexchrom_excluded_check | WARNING | Autosomal-only (X/Y genes excluded) whole-cohort nested-CV AUC = 0.834 [0.774, 0.891] vs. full-genome whole-cohort logreg AUC = 0.821. Difference = -0.014.
+2026-08-29 15:27:11,371 | 11_sexchrom_excluded_check | INFO | Wrote results/performance_summary_autosomal_only.csv
+2026-08-29 15:33:48,464 | 12_learning_curve | INFO | fraction=0.30 (~46 train samples): AUC=0.793 +/- 0.096 over 25 fold-evals (22.5s)
+2026-08-29 15:34:15,514 | 12_learning_curve | INFO | fraction=0.50 (~76 train samples): AUC=0.798 +/- 0.094 over 25 fold-evals (27.0s)
+2026-08-29 15:35:00,768 | 12_learning_curve | INFO | fraction=0.70 (~106 train samples): AUC=0.825 +/- 0.071 over 25 fold-evals (45.3s)
+2026-08-29 15:35:51,258 | 12_learning_curve | INFO | fraction=0.85 (~129 train samples): AUC=0.825 +/- 0.083 over 25 fold-evals (50.5s)
+2026-08-29 15:36:49,228 | 12_learning_curve | INFO | fraction=1.00 (~152 train samples): AUC=0.836 +/- 0.070 over 25 fold-evals (58.0s)
+2026-08-29 15:36:49,236 | 12_learning_curve | INFO | Wrote results/learning_curve.csv
+2026-08-29 15:36:49,538 | 12_learning_curve | INFO | Wrote figures/learning_curve.png
+2026-08-29 16:29:00,188 | 06_pathway_crosscheck | INFO | top_n=20 pathway=FM1_ECM_RhoGDI_collagen_GP6: overlap=0/20 (pathway genes in background=35/21374 total), p=1.0000, genes=[]
+2026-08-29 16:29:00,188 | 06_pathway_crosscheck | INFO | top_n=20 pathway=FM2_CLEAR_lysosomal: overlap=0/20 (pathway genes in background=23/21374 total), p=1.0000, genes=[]
+2026-08-29 16:29:00,188 | 06_pathway_crosscheck | INFO | top_n=20 pathway=FM3_FM4_interferon_JAKSTAT_death_receptor: overlap=0/20 (pathway genes in background=30/21374 total), p=1.0000, genes=[]
+2026-08-29 16:29:00,188 | 06_pathway_crosscheck | INFO | top_n=30 pathway=FM1_ECM_RhoGDI_collagen_GP6: overlap=0/30 (pathway genes in background=35/21374 total), p=1.0000, genes=[]
+2026-08-29 16:29:00,188 | 06_pathway_crosscheck | INFO | top_n=30 pathway=FM2_CLEAR_lysosomal: overlap=0/30 (pathway genes in background=23/21374 total), p=1.0000, genes=[]
+2026-08-29 16:29:00,189 | 06_pathway_crosscheck | INFO | top_n=30 pathway=FM3_FM4_interferon_JAKSTAT_death_receptor: overlap=0/30 (pathway genes in background=30/21374 total), p=1.0000, genes=[]
+2026-08-29 16:29:00,189 | 06_pathway_crosscheck | INFO | top_n=50 pathway=FM1_ECM_RhoGDI_collagen_GP6: overlap=0/50 (pathway genes in background=35/21374 total), p=1.0000, genes=[]
+2026-08-29 16:29:00,189 | 06_pathway_crosscheck | INFO | top_n=50 pathway=FM2_CLEAR_lysosomal: overlap=0/50 (pathway genes in background=23/21374 total), p=1.0000, genes=[]
+2026-08-29 16:29:00,189 | 06_pathway_crosscheck | INFO | top_n=50 pathway=FM3_FM4_interferon_JAKSTAT_death_receptor: overlap=0/50 (pathway genes in background=30/21374 total), p=1.0000, genes=[]
+2026-08-29 16:29:00,189 | 06_pathway_crosscheck | INFO | top_n=100 pathway=FM1_ECM_RhoGDI_collagen_GP6: overlap=0/50 (pathway genes in background=35/21374 total), p=1.0000, genes=[]
+2026-08-29 16:29:00,189 | 06_pathway_crosscheck | INFO | top_n=100 pathway=FM2_CLEAR_lysosomal: overlap=0/50 (pathway genes in background=23/21374 total), p=1.0000, genes=[]
+2026-08-29 16:29:00,190 | 06_pathway_crosscheck | INFO | top_n=100 pathway=FM3_FM4_interferon_JAKSTAT_death_receptor: overlap=0/50 (pathway genes in background=30/21374 total), p=1.0000, genes=[]
+2026-08-29 16:29:00,193 | 06_pathway_crosscheck | INFO | Wrote results/top_features_vs_original_pathways.csv
+2026-08-29 16:29:00,193 | 06_pathway_crosscheck | INFO | No top-N/pathway combination reaches nominal significance (p<0.05, uncorrected). This is reported honestly as a weak/absent overlap, not hidden.
+2026-08-29 16:58:14,165 | 03_nested_cv | INFO | === Environment / reproducibility record ===
+2026-08-29 16:58:14,165 | 03_nested_cv | INFO | Python: 3.10.9
+2026-08-29 16:58:14,166 | 03_nested_cv | INFO | SEED (numpy, sklearn splitters, xgboost): 42
+2026-08-29 16:58:14,166 | 03_nested_cv | INFO | pandas=2.2.2 numpy=1.26.4 scikit-learn=1.4.2 scipy=1.13.0
+2026-08-29 16:58:14,167 | 03_nested_cv | INFO | xgboost=2.0.3 shap=0.45.1 matplotlib=3.8.4
+2026-08-29 16:58:16,266 | 03_nested_cv | INFO | Modeling matrix: X=(189, 21915), y positive (FM)=96, negative (Control)=93
+2026-08-29 16:58:16,266 | 03_nested_cv | INFO | === Nested CV: logreg ===
+2026-08-29 16:58:29,755 | 03_nested_cv | INFO | [logreg] outer fold 1/5: AUC=0.731 PR-AUC=0.812 sens=0.550 spec=0.833 acc=0.684 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200} (13.5s)
+2026-08-29 16:58:43,561 | 03_nested_cv | INFO | [logreg] outer fold 2/5: AUC=0.895 PR-AUC=0.917 sens=0.789 spec=0.737 acc=0.763 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 100} (13.8s)
+2026-08-29 16:58:58,334 | 03_nested_cv | INFO | [logreg] outer fold 3/5: AUC=0.870 PR-AUC=0.903 sens=0.842 spec=0.737 acc=0.789 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200} (14.8s)
+2026-08-29 16:59:13,156 | 03_nested_cv | INFO | [logreg] outer fold 4/5: AUC=0.842 PR-AUC=0.854 sens=0.789 spec=0.842 acc=0.816 best_params={'clf__C': 1, 'clf__penalty': 'l1', 'select__k': 50} (14.8s)
+2026-08-29 16:59:27,937 | 03_nested_cv | INFO | [logreg] outer fold 5/5: AUC=0.804 PR-AUC=0.856 sens=0.684 spec=0.667 acc=0.676 best_params={'clf__C': 0.1, 'clf__penalty': 'l2', 'select__k': 200} (14.8s)
+2026-08-29 17:00:03,731 | 03_nested_cv | INFO | === Nested CV: xgboost ===
+2026-08-29 17:00:27,983 | 03_nested_cv | INFO | [xgboost] outer fold 1/5: AUC=0.736 PR-AUC=0.815 sens=0.650 spec=0.833 acc=0.737 best_params={'clf__learning_rate': 0.05, 'clf__max_depth': 2, 'clf__n_estimators': 200, 'select__k': 200} (24.2s)
+2026-08-29 17:00:43,123 | 03_nested_cv | INFO | [xgboost] outer fold 2/5: AUC=0.884 PR-AUC=0.892 sens=0.684 spec=0.842 acc=0.763 best_params={'clf__learning_rate': 0.1, 'clf__max_depth': 2, 'clf__n_estimators': 200, 'select__k': 200} (15.1s)
+2026-08-29 17:00:55,972 | 03_nested_cv | INFO | [xgboost] outer fold 3/5: AUC=0.842 PR-AUC=0.875 sens=0.737 spec=0.684 acc=0.711 best_params={'clf__learning_rate': 0.05, 'clf__max_depth': 2, 'clf__n_estimators': 100, 'select__k': 100} (12.8s)
+2026-08-29 17:01:08,520 | 03_nested_cv | INFO | [xgboost] outer fold 4/5: AUC=0.889 PR-AUC=0.901 sens=0.789 spec=0.737 acc=0.763 best_params={'clf__learning_rate': 0.05, 'clf__max_depth': 3, 'clf__n_estimators': 200, 'select__k': 50} (12.5s)
+2026-08-29 17:01:21,019 | 03_nested_cv | INFO | [xgboost] outer fold 5/5: AUC=0.804 PR-AUC=0.869 sens=0.684 spec=0.722 acc=0.703 best_params={'clf__learning_rate': 0.05, 'clf__max_depth': 3, 'clf__n_estimators': 200, 'select__k': 100} (12.5s)
+2026-08-29 17:01:31,359 | 03_nested_cv | INFO | Wrote results/performance_summary.csv
+2026-08-29 17:01:31,369 | 03_nested_cv | INFO | Wrote results/outer_fold_predictions.csv
+2026-08-29 17:01:31,370 | 03_nested_cv | INFO | SUMMARY logreg: AUC=0.821 [0.756, 0.880]  PR-AUC=0.841 [0.764, 0.908]
+2026-08-29 17:01:31,370 | 03_nested_cv | INFO | SUMMARY xgboost: AUC=0.825 [0.766, 0.880]  PR-AUC=0.864 [0.810, 0.913]
+2026-08-29 17:01:56,008 | 09_sex_confound_check | WARNING | Sex/label contingency table:
+sex      Female  Male
+label                
+Control      41    52
+FM           91     5
+2026-08-29 17:01:56,008 | 09_sex_confound_check | WARNING | Sex is NOT balanced between FM and Control (chi2 p=1.05e-13). This is a genuine confound risk for any classifier trained on the whole cohort.
+2026-08-29 17:01:58,616 | 09_sex_confound_check | WARNING | Sex-ONLY classifier (no gene expression) AUC = 0.727 (95% CI 0.648-0.798, plain 5-fold CV, no inner tuning loop — simpler estimation than the nested-CV numbers it's compared against, so treat this CI as approximate). The full gene-expression model's nested-CV AUC (~0.82-0.86, see performance_summary.csv) must be read relative to this floor, not relative to chance (0.5).
+2026-08-29 17:01:58,637 | 09_sex_confound_check | INFO | Female-only subset: n=132 (FM=91, Control=41)
+2026-08-29 17:02:09,515 | 09_sex_confound_check | INFO | [female-only] outer fold 1/5: AUC=0.678 PR-AUC=0.885 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-08-29 17:02:17,592 | 09_sex_confound_check | INFO | [female-only] outer fold 2/5: AUC=0.747 PR-AUC=0.898 best_params={'clf__C': 0.1, 'clf__penalty': 'l2', 'select__k': 200}
+2026-08-29 17:02:25,664 | 09_sex_confound_check | INFO | [female-only] outer fold 3/5: AUC=0.840 PR-AUC=0.934 best_params={'clf__C': 0.01, 'clf__penalty': 'l2', 'select__k': 100}
+2026-08-29 17:02:33,645 | 09_sex_confound_check | INFO | [female-only] outer fold 4/5: AUC=0.785 PR-AUC=0.904 best_params={'clf__C': 0.01, 'clf__penalty': 'l2', 'select__k': 200}
+2026-08-29 17:02:41,667 | 09_sex_confound_check | INFO | [female-only] outer fold 5/5: AUC=0.847 PR-AUC=0.940 best_params={'clf__C': 0.1, 'clf__penalty': 'l2', 'select__k': 200}
+2026-08-29 17:02:44,691 | 09_sex_confound_check | WARNING | Female-only nested-CV AUC = 0.783 [0.705, 0.858] (n=132, FM=91/Control=41) vs. whole-cohort AUC ~0.82 (confounded by sex) and sex-only-classifier floor of 0.727.
+2026-08-29 17:02:44,727 | 09_sex_confound_check | INFO | Wrote results/sex_confound_summary.csv and results/performance_summary_female_only.csv
+2026-08-29 17:02:58,219 | 06_pathway_crosscheck | INFO | top_n=20 pathway=FM1_ECM_RhoGDI_collagen_GP6: overlap=0/20 (pathway genes in background=35/21374 total), p=1.0000, genes=[] | test would need overlap>=1 to reach p<0.05 given this pathway's size (power context, not a correction to the p-value)
+2026-08-29 17:02:58,221 | 06_pathway_crosscheck | INFO | top_n=20 pathway=FM2_CLEAR_lysosomal: overlap=0/20 (pathway genes in background=23/21374 total), p=1.0000, genes=[] | test would need overlap>=1 to reach p<0.05 given this pathway's size (power context, not a correction to the p-value)
+2026-08-29 17:02:58,221 | 06_pathway_crosscheck | INFO | top_n=20 pathway=FM3_FM4_interferon_JAKSTAT_death_receptor: overlap=0/20 (pathway genes in background=30/21374 total), p=1.0000, genes=[] | test would need overlap>=1 to reach p<0.05 given this pathway's size (power context, not a correction to the p-value)
+2026-08-29 17:02:58,222 | 06_pathway_crosscheck | INFO | top_n=30 pathway=FM1_ECM_RhoGDI_collagen_GP6: overlap=0/30 (pathway genes in background=35/21374 total), p=1.0000, genes=[] | test would need overlap>=1 to reach p<0.05 given this pathway's size (power context, not a correction to the p-value)
+2026-08-29 17:02:58,223 | 06_pathway_crosscheck | INFO | top_n=30 pathway=FM2_CLEAR_lysosomal: overlap=0/30 (pathway genes in background=23/21374 total), p=1.0000, genes=[] | test would need overlap>=1 to reach p<0.05 given this pathway's size (power context, not a correction to the p-value)
+2026-08-29 17:02:58,224 | 06_pathway_crosscheck | INFO | top_n=30 pathway=FM3_FM4_interferon_JAKSTAT_death_receptor: overlap=0/30 (pathway genes in background=30/21374 total), p=1.0000, genes=[] | test would need overlap>=1 to reach p<0.05 given this pathway's size (power context, not a correction to the p-value)
+2026-08-29 17:02:58,225 | 06_pathway_crosscheck | INFO | top_n=50 pathway=FM1_ECM_RhoGDI_collagen_GP6: overlap=0/50 (pathway genes in background=35/21374 total), p=1.0000, genes=[] | test would need overlap>=2 to reach p<0.05 given this pathway's size (power context, not a correction to the p-value)
+2026-08-29 17:02:58,226 | 06_pathway_crosscheck | INFO | top_n=50 pathway=FM2_CLEAR_lysosomal: overlap=0/50 (pathway genes in background=23/21374 total), p=1.0000, genes=[] | test would need overlap>=2 to reach p<0.05 given this pathway's size (power context, not a correction to the p-value)
+2026-08-29 17:02:58,226 | 06_pathway_crosscheck | INFO | top_n=50 pathway=FM3_FM4_interferon_JAKSTAT_death_receptor: overlap=0/50 (pathway genes in background=30/21374 total), p=1.0000, genes=[] | test would need overlap>=2 to reach p<0.05 given this pathway's size (power context, not a correction to the p-value)
+2026-08-29 17:02:58,227 | 06_pathway_crosscheck | INFO | top_n=100 pathway=FM1_ECM_RhoGDI_collagen_GP6: overlap=0/50 (pathway genes in background=35/21374 total), p=1.0000, genes=[] | test would need overlap>=2 to reach p<0.05 given this pathway's size (power context, not a correction to the p-value)
+2026-08-29 17:02:58,228 | 06_pathway_crosscheck | INFO | top_n=100 pathway=FM2_CLEAR_lysosomal: overlap=0/50 (pathway genes in background=23/21374 total), p=1.0000, genes=[] | test would need overlap>=2 to reach p<0.05 given this pathway's size (power context, not a correction to the p-value)
+2026-08-29 17:02:58,230 | 06_pathway_crosscheck | INFO | top_n=100 pathway=FM3_FM4_interferon_JAKSTAT_death_receptor: overlap=0/50 (pathway genes in background=30/21374 total), p=1.0000, genes=[] | test would need overlap>=2 to reach p<0.05 given this pathway's size (power context, not a correction to the p-value)
+2026-08-29 17:02:58,237 | 06_pathway_crosscheck | INFO | Wrote results/top_features_vs_original_pathways.csv
+2026-08-29 17:02:58,238 | 06_pathway_crosscheck | INFO | No top-N/pathway combination reaches nominal significance (p<0.05, uncorrected). This is reported honestly as a weak/absent overlap, not hidden.
+2026-08-29 17:02:58,238 | 06_pathway_crosscheck | WARNING | POWER CAVEAT: this test's minimum-detectable-overlap column shows that for the smaller pathway gene sets (e.g. FM3_FM4, K~30 genes in background) even a single shared gene could sometimes reach p<0.05 at larger top-N, while for others 2-3 genes are needed — meaning a uniform 'p=1.0 at every threshold' result reflects both the small reference-gene-set sizes and the true absence of overlap, and should not be read as strong evidence against ANY relationship existing, only as no evidence FOR one at the overlap sizes actually observed (all zero).
+2026-08-29 17:03:26,800 | 08_featsel_robustness | INFO | t-test-selection outer fold 1/5: AUC=0.783 PR-AUC=0.853 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-08-29 17:03:31,240 | 08_featsel_robustness | INFO | t-test-selection outer fold 2/5: AUC=0.886 PR-AUC=0.901 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 50}
+2026-08-29 17:03:35,728 | 08_featsel_robustness | INFO | t-test-selection outer fold 3/5: AUC=0.878 PR-AUC=0.902 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-08-29 17:03:40,323 | 08_featsel_robustness | INFO | t-test-selection outer fold 4/5: AUC=0.873 PR-AUC=0.879 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-08-29 17:03:44,813 | 08_featsel_robustness | INFO | t-test-selection outer fold 5/5: AUC=0.851 PR-AUC=0.910 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 100}
+2026-08-29 17:03:52,402 | 08_featsel_robustness | INFO | Robustness check: Welch t-test feature selection AUC=0.857 (95% CI 0.801-0.907) vs. Mann-Whitney U AUC=0.821 (same logreg model family, same outer/inner CV structure, identical fold assignments). Paired bootstrap difference (t-test - MW) = 0.036 (95% CI 0.006 to 0.069) — CI excludes zero: the shift is a real, if modest, effect of the univariate test choice.
+2026-08-29 17:03:52,403 | 08_featsel_robustness | INFO | Wrote results/performance_summary_ttest_robustness.csv and results/featsel_ttest_vs_mannwhitney_diff_test.csv
+2026-08-29 17:05:39,943 | 13_confound_paired_diff_test | INFO | On the same 132 female subjects: whole-cohort-trained model AUC=0.7757, female-only-trained model AUC=0.7829 (raw point estimates).
+2026-08-29 17:05:55,584 | 13_confound_paired_diff_test | WARNING | Paired bootstrap difference (whole-cohort - female-only), evaluated on the same 132 female subjects: mean=-0.0071, 95% CI [-0.0763, 0.0596], approx p=0.8544. Verdict: the CI includes zero: this paired comparison does NOT provide statistically significant evidence that the whole-cohort model outperforms the female-only model on the same female subjects — the earlier 'modestly inflated' language was not fully supported and should be softened accordingly.
+2026-08-29 17:05:55,584 | 13_confound_paired_diff_test | INFO | Wrote results/sex_confound_paired_diff_test.csv
+2026-08-29 17:06:38,927 | 13_confound_paired_diff_test | INFO | On the same 132 female subjects: whole-cohort-trained model AUC=0.7757, female-only-trained model AUC=0.7829 (raw point estimates).
+2026-08-29 17:06:59,724 | 13_confound_paired_diff_test | WARNING | Paired bootstrap difference (whole-cohort - female-only), evaluated on the same 132 female subjects: mean=-0.0071, 95% CI [-0.0763, 0.0596], approx p=0.8544. Verdict: the CI includes zero: this paired comparison does NOT provide statistically significant evidence that the whole-cohort model outperforms the female-only model on the same female subjects — the earlier 'modestly inflated' language was not fully supported and should be softened accordingly.
+2026-08-29 17:06:59,740 | 13_confound_paired_diff_test | WARNING | Whole-cohort model's AUC restricted to the 57 male subjects (52 control / 5 FM, i.e. 91% control) = 0.5923. This subset is heavily skewed toward controls, so any pooled-AUC advantage of the whole-cohort model (0.821) over the female-only estimate (0.783) more plausibly comes from comparatively easy male classification than from sex-linked inflation on female predictions specifically.
+2026-08-29 17:06:59,740 | 13_confound_paired_diff_test | INFO | Wrote results/sex_confound_paired_diff_test.csv
+2026-08-29 17:07:57,255 | 14_confound_permutation_nulls | INFO | Female-only reduced-grid real AUC = 0.7424 (n=132)
+2026-08-29 17:08:02,831 | 14_confound_permutation_nulls | INFO | [female-only] permutation 1/50: AUC=0.5532 (5.6s)
+2026-08-29 17:08:08,579 | 14_confound_permutation_nulls | INFO | [female-only] permutation 2/50: AUC=0.5562 (5.7s)
+2026-08-29 17:08:14,108 | 14_confound_permutation_nulls | INFO | [female-only] permutation 3/50: AUC=0.4589 (5.5s)
+2026-08-29 17:08:19,718 | 14_confound_permutation_nulls | INFO | [female-only] permutation 4/50: AUC=0.5082 (5.6s)
+2026-08-29 17:08:26,848 | 14_confound_permutation_nulls | INFO | [female-only] permutation 5/50: AUC=0.5208 (7.1s)
+2026-08-29 17:08:35,762 | 14_confound_permutation_nulls | INFO | [female-only] permutation 6/50: AUC=0.5176 (8.9s)
+2026-08-29 17:08:44,447 | 14_confound_permutation_nulls | INFO | [female-only] permutation 7/50: AUC=0.4559 (8.7s)
+2026-08-29 17:08:53,903 | 14_confound_permutation_nulls | INFO | [female-only] permutation 8/50: AUC=0.5127 (9.5s)
+2026-08-29 17:09:01,615 | 14_confound_permutation_nulls | INFO | [female-only] permutation 9/50: AUC=0.4203 (7.7s)
+2026-08-29 17:09:10,621 | 14_confound_permutation_nulls | INFO | [female-only] permutation 10/50: AUC=0.6264 (9.0s)
+2026-08-29 17:09:19,663 | 14_confound_permutation_nulls | INFO | [female-only] permutation 11/50: AUC=0.5484 (9.0s)
+2026-08-29 17:09:28,726 | 14_confound_permutation_nulls | INFO | [female-only] permutation 12/50: AUC=0.4428 (9.1s)
+2026-08-29 17:09:37,924 | 14_confound_permutation_nulls | INFO | [female-only] permutation 13/50: AUC=0.6205 (9.2s)
+2026-08-29 17:09:47,340 | 14_confound_permutation_nulls | INFO | [female-only] permutation 14/50: AUC=0.5224 (9.4s)
+2026-08-29 17:09:56,459 | 14_confound_permutation_nulls | INFO | [female-only] permutation 15/50: AUC=0.5476 (9.1s)
+2026-08-29 17:10:05,767 | 14_confound_permutation_nulls | INFO | [female-only] permutation 16/50: AUC=0.5599 (9.3s)
+2026-08-29 17:10:15,368 | 14_confound_permutation_nulls | INFO | [female-only] permutation 17/50: AUC=0.5342 (9.6s)
+2026-08-29 17:10:24,864 | 14_confound_permutation_nulls | INFO | [female-only] permutation 18/50: AUC=0.5926 (9.5s)
+2026-08-29 17:10:34,055 | 14_confound_permutation_nulls | INFO | [female-only] permutation 19/50: AUC=0.6106 (9.2s)
+2026-08-29 17:10:43,585 | 14_confound_permutation_nulls | INFO | [female-only] permutation 20/50: AUC=0.4698 (9.5s)
+2026-08-29 17:10:53,089 | 14_confound_permutation_nulls | INFO | [female-only] permutation 21/50: AUC=0.5907 (9.5s)
+2026-08-29 17:11:02,440 | 14_confound_permutation_nulls | INFO | [female-only] permutation 22/50: AUC=0.3994 (9.4s)
+2026-08-29 17:11:11,875 | 14_confound_permutation_nulls | INFO | [female-only] permutation 23/50: AUC=0.6559 (9.4s)
+2026-08-29 17:11:20,991 | 14_confound_permutation_nulls | INFO | [female-only] permutation 24/50: AUC=0.4452 (9.1s)
+2026-08-29 17:11:30,263 | 14_confound_permutation_nulls | INFO | [female-only] permutation 25/50: AUC=0.5596 (9.3s)
+2026-08-29 17:11:39,639 | 14_confound_permutation_nulls | INFO | [female-only] permutation 26/50: AUC=0.5484 (9.4s)
+2026-08-29 17:11:49,121 | 14_confound_permutation_nulls | INFO | [female-only] permutation 27/50: AUC=0.5149 (9.5s)
+2026-08-29 17:11:58,367 | 14_confound_permutation_nulls | INFO | [female-only] permutation 28/50: AUC=0.4187 (9.2s)
+2026-08-29 17:12:07,484 | 14_confound_permutation_nulls | INFO | [female-only] permutation 29/50: AUC=0.5537 (9.1s)
+2026-08-29 17:12:17,168 | 14_confound_permutation_nulls | INFO | [female-only] permutation 30/50: AUC=0.4028 (9.7s)
+2026-08-29 17:12:26,458 | 14_confound_permutation_nulls | INFO | [female-only] permutation 31/50: AUC=0.3645 (9.3s)
+2026-08-29 17:12:35,584 | 14_confound_permutation_nulls | INFO | [female-only] permutation 32/50: AUC=0.5599 (9.1s)
+2026-08-29 17:12:44,485 | 14_confound_permutation_nulls | INFO | [female-only] permutation 33/50: AUC=0.5591 (8.9s)
+2026-08-29 17:12:53,705 | 14_confound_permutation_nulls | INFO | [female-only] permutation 34/50: AUC=0.6202 (9.2s)
+2026-08-29 17:13:02,944 | 14_confound_permutation_nulls | INFO | [female-only] permutation 35/50: AUC=0.4570 (9.2s)
+2026-08-29 17:13:12,094 | 14_confound_permutation_nulls | INFO | [female-only] permutation 36/50: AUC=0.5725 (9.1s)
+2026-08-29 17:13:21,236 | 14_confound_permutation_nulls | INFO | [female-only] permutation 37/50: AUC=0.5074 (9.1s)
+2026-08-29 17:13:30,342 | 14_confound_permutation_nulls | INFO | [female-only] permutation 38/50: AUC=0.4752 (9.1s)
+2026-08-29 17:13:39,458 | 14_confound_permutation_nulls | INFO | [female-only] permutation 39/50: AUC=0.3744 (9.1s)
+2026-08-29 17:13:48,600 | 14_confound_permutation_nulls | INFO | [female-only] permutation 40/50: AUC=0.4203 (9.1s)
+2026-08-29 17:13:58,002 | 14_confound_permutation_nulls | INFO | [female-only] permutation 41/50: AUC=0.5044 (9.4s)
+2026-08-29 17:14:07,239 | 14_confound_permutation_nulls | INFO | [female-only] permutation 42/50: AUC=0.4972 (9.2s)
+2026-08-29 17:14:16,430 | 14_confound_permutation_nulls | INFO | [female-only] permutation 43/50: AUC=0.5964 (9.2s)
+2026-08-29 17:14:25,959 | 14_confound_permutation_nulls | INFO | [female-only] permutation 44/50: AUC=0.5626 (9.5s)
+2026-08-29 17:14:35,472 | 14_confound_permutation_nulls | INFO | [female-only] permutation 45/50: AUC=0.4189 (9.5s)
+2026-08-29 17:14:45,021 | 14_confound_permutation_nulls | INFO | [female-only] permutation 46/50: AUC=0.4961 (9.5s)
+2026-08-29 17:14:50,860 | 14_confound_permutation_nulls | INFO | [female-only] permutation 47/50: AUC=0.5591 (5.8s)
+2026-08-29 17:14:56,491 | 14_confound_permutation_nulls | INFO | [female-only] permutation 48/50: AUC=0.4814 (5.6s)
+2026-08-29 17:15:01,972 | 14_confound_permutation_nulls | INFO | [female-only] permutation 49/50: AUC=0.4567 (5.5s)
+2026-08-29 17:15:07,714 | 14_confound_permutation_nulls | INFO | [female-only] permutation 50/50: AUC=0.3940 (5.7s)
+2026-08-29 17:15:07,718 | 14_confound_permutation_nulls | WARNING | [female-only] null AUC: mean=0.5109 std=0.0712 min=0.3645 max=0.6559 | real AUC=0.7424 | empirical p=0.0196
+2026-08-29 17:15:15,287 | 14_confound_permutation_nulls | INFO | Autosomal-only reduced-grid real AUC = 0.8407 (n=189, 21064 genes)
+2026-08-29 17:15:23,022 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 1/50: AUC=0.4913 (7.7s)
+2026-08-29 17:15:30,645 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 2/50: AUC=0.5111 (7.6s)
+2026-08-29 17:15:38,210 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 3/50: AUC=0.4011 (7.6s)
+2026-08-29 17:15:46,040 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 4/50: AUC=0.3894 (7.8s)
+2026-08-29 17:15:53,647 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 5/50: AUC=0.5382 (7.6s)
+2026-08-29 17:16:01,424 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 6/50: AUC=0.5091 (7.8s)
+2026-08-29 17:16:09,016 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 7/50: AUC=0.4824 (7.6s)
+2026-08-29 17:16:16,842 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 8/50: AUC=0.5364 (7.8s)
+2026-08-29 17:16:24,412 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 9/50: AUC=0.5493 (7.6s)
+2026-08-29 17:16:32,350 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 10/50: AUC=0.5486 (7.9s)
+2026-08-29 17:16:40,330 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 11/50: AUC=0.4562 (8.0s)
+2026-08-29 17:16:47,833 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 12/50: AUC=0.4297 (7.5s)
+2026-08-29 17:16:55,685 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 13/50: AUC=0.5492 (7.9s)
+2026-08-29 17:17:03,432 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 14/50: AUC=0.5407 (7.7s)
+2026-08-29 17:17:10,714 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 15/50: AUC=0.3911 (7.3s)
+2026-08-29 17:17:18,602 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 16/50: AUC=0.5693 (7.9s)
+2026-08-29 17:17:26,316 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 17/50: AUC=0.4132 (7.7s)
+2026-08-29 17:17:33,962 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 18/50: AUC=0.5465 (7.6s)
+2026-08-29 17:17:40,974 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 19/50: AUC=0.5398 (7.0s)
+2026-08-29 17:17:47,516 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 20/50: AUC=0.5726 (6.5s)
+2026-08-29 17:17:54,425 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 21/50: AUC=0.5157 (6.9s)
+2026-08-29 17:18:01,104 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 22/50: AUC=0.3986 (6.7s)
+2026-08-29 17:18:07,657 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 23/50: AUC=0.5100 (6.6s)
+2026-08-29 17:18:14,613 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 24/50: AUC=0.5321 (7.0s)
+2026-08-29 17:18:21,202 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 25/50: AUC=0.4054 (6.6s)
+2026-08-29 17:18:27,944 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 26/50: AUC=0.4549 (6.7s)
+2026-08-29 17:18:34,777 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 27/50: AUC=0.5987 (6.8s)
+2026-08-29 17:18:41,239 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 28/50: AUC=0.5155 (6.5s)
+2026-08-29 17:18:47,873 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 29/50: AUC=0.6297 (6.6s)
+2026-08-29 17:18:54,181 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 30/50: AUC=0.4672 (6.3s)
+2026-08-29 17:19:00,809 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 31/50: AUC=0.4061 (6.6s)
+2026-08-29 17:19:07,042 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 32/50: AUC=0.5335 (6.2s)
+2026-08-29 17:19:13,273 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 33/50: AUC=0.5205 (6.2s)
+2026-08-29 17:19:19,502 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 34/50: AUC=0.4989 (6.2s)
+2026-08-29 17:19:25,892 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 35/50: AUC=0.4481 (6.4s)
+2026-08-29 17:19:32,246 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 36/50: AUC=0.5008 (6.4s)
+2026-08-29 17:19:38,512 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 37/50: AUC=0.4683 (6.3s)
+2026-08-29 17:19:44,958 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 38/50: AUC=0.6147 (6.4s)
+2026-08-29 17:19:51,495 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 39/50: AUC=0.5811 (6.5s)
+2026-08-29 17:19:57,863 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 40/50: AUC=0.4562 (6.4s)
+2026-08-29 17:20:04,260 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 41/50: AUC=0.5085 (6.4s)
+2026-08-29 17:20:10,747 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 42/50: AUC=0.5375 (6.5s)
+2026-08-29 17:20:17,494 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 43/50: AUC=0.4135 (6.7s)
+2026-08-29 17:20:23,989 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 44/50: AUC=0.4042 (6.5s)
+2026-08-29 17:20:30,488 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 45/50: AUC=0.5029 (6.5s)
+2026-08-29 17:20:37,322 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 46/50: AUC=0.4754 (6.8s)
+2026-08-29 17:20:43,965 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 47/50: AUC=0.4914 (6.6s)
+2026-08-29 17:20:50,470 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 48/50: AUC=0.3949 (6.5s)
+2026-08-29 17:20:56,955 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 49/50: AUC=0.5401 (6.5s)
+2026-08-29 17:21:03,485 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 50/50: AUC=0.5309 (6.5s)
+2026-08-29 17:21:03,487 | 14_confound_permutation_nulls | WARNING | [autosomal-only] null AUC: mean=0.4964 std=0.0620 min=0.3894 max=0.6297 | real AUC=0.8407 | empirical p=0.0196
+2026-08-29 17:21:03,820 | 14_confound_permutation_nulls | INFO | Wrote results/permutation_null_female_only.csv, results/permutation_null_autosomal_only.csv, figures/permutation_null_confound_checks.png
+2026-08-29 17:24:31,612 | 15_seed_sensitivity | INFO | seed=42: AUC=0.8208 [HEADLINE] (58.5s)
+2026-08-29 17:25:28,942 | 15_seed_sensitivity | INFO | seed=43: AUC=0.8381 (57.3s)
+2026-08-29 17:26:27,591 | 15_seed_sensitivity | INFO | seed=44: AUC=0.8349 (58.6s)
+2026-08-29 17:27:26,215 | 15_seed_sensitivity | INFO | seed=45: AUC=0.8440 (58.6s)
+2026-08-29 17:28:24,642 | 15_seed_sensitivity | INFO | seed=46: AUC=0.8144 (58.4s)
+2026-08-29 17:28:24,646 | 15_seed_sensitivity | WARNING | Seed sensitivity of the headline logreg result across 5 full-grid outer/inner CV splits (full param grid, same as 03_nested_cv.py): mean=0.8304, std=0.0111, range=[0.8144, 0.8440]. Headline seed (42) AUC=0.8208. Spread across seeds is within the bootstrap CI half-width reported for the headline result (~0.062), suggesting seed choice is not a major driver of the headline number.
+2026-08-29 17:28:24,647 | 15_seed_sensitivity | INFO | Wrote results/seed_sensitivity.csv
+2026-08-29 17:45:54,625 | 16_auc_pair_decomposition | INFO | Group sizes: FM female=91, FM male=5, Control female=41, Control male=52
+2026-08-29 17:45:54,625 | 16_auc_pair_decomposition | INFO | FF (FM-female vs Control-female): n_pairs=3731, concordance_rate=0.7757
+2026-08-29 17:45:54,625 | 16_auc_pair_decomposition | INFO | MM (FM-male vs Control-male): n_pairs=260, concordance_rate=0.5923
+2026-08-29 17:45:54,625 | 16_auc_pair_decomposition | INFO | cross: FM-female vs Control-male: n_pairs=4732, concordance_rate=0.8842
+2026-08-29 17:45:54,625 | 16_auc_pair_decomposition | INFO | cross: FM-male vs Control-female: n_pairs=205, concordance_rate=0.4683
+2026-08-29 17:45:54,629 | 16_auc_pair_decomposition | WARNING | DECOMPOSITION: within-sex pair concordance = 0.7637 (n_pairs=3991) vs. cross-sex pair concordance = 0.8669 (n_pairs=4937). Reconstructed overall concordance from the pair decomposition = 0.8208, vs. sklearn roc_auc_score on the same data = 0.8208 (sanity check, should match). Cross-sex pairs ARE more concordant than within-sex pairs, directly confirming the proposed mechanism.
+2026-08-29 17:45:54,629 | 16_auc_pair_decomposition | INFO | Wrote results/auc_pair_decomposition.csv
+2026-08-31 00:50:17,869 | 14_confound_permutation_nulls | INFO | Female-only reduced-grid real AUC = 0.7424 (n=132)
+2026-08-31 00:50:22,521 | 14_confound_permutation_nulls | INFO | [female-only] permutation 1/100: AUC=0.5532 (4.7s)
+2026-08-31 00:50:27,142 | 14_confound_permutation_nulls | INFO | [female-only] permutation 2/100: AUC=0.5562 (4.6s)
+2026-08-31 00:50:32,083 | 14_confound_permutation_nulls | INFO | [female-only] permutation 3/100: AUC=0.4589 (4.9s)
+2026-08-31 00:50:36,855 | 14_confound_permutation_nulls | INFO | [female-only] permutation 4/100: AUC=0.5082 (4.8s)
+2026-08-31 00:50:41,903 | 14_confound_permutation_nulls | INFO | [female-only] permutation 5/100: AUC=0.5208 (5.0s)
+2026-08-31 00:50:47,051 | 14_confound_permutation_nulls | INFO | [female-only] permutation 6/100: AUC=0.5176 (5.1s)
+2026-08-31 00:50:52,118 | 14_confound_permutation_nulls | INFO | [female-only] permutation 7/100: AUC=0.4559 (5.1s)
+2026-08-31 00:50:56,957 | 14_confound_permutation_nulls | INFO | [female-only] permutation 8/100: AUC=0.5127 (4.8s)
+2026-08-31 00:51:01,844 | 14_confound_permutation_nulls | INFO | [female-only] permutation 9/100: AUC=0.4203 (4.9s)
+2026-08-31 00:51:06,749 | 14_confound_permutation_nulls | INFO | [female-only] permutation 10/100: AUC=0.6264 (4.9s)
+2026-08-31 00:51:11,712 | 14_confound_permutation_nulls | INFO | [female-only] permutation 11/100: AUC=0.5484 (5.0s)
+2026-08-31 00:51:16,521 | 14_confound_permutation_nulls | INFO | [female-only] permutation 12/100: AUC=0.4428 (4.8s)
+2026-08-31 00:51:21,430 | 14_confound_permutation_nulls | INFO | [female-only] permutation 13/100: AUC=0.6205 (4.9s)
+2026-08-31 00:51:26,370 | 14_confound_permutation_nulls | INFO | [female-only] permutation 14/100: AUC=0.5224 (4.9s)
+2026-08-31 00:51:31,285 | 14_confound_permutation_nulls | INFO | [female-only] permutation 15/100: AUC=0.5476 (4.9s)
+2026-08-31 00:51:36,363 | 14_confound_permutation_nulls | INFO | [female-only] permutation 16/100: AUC=0.5599 (5.1s)
+2026-08-31 00:51:41,176 | 14_confound_permutation_nulls | INFO | [female-only] permutation 17/100: AUC=0.5342 (4.8s)
+2026-08-31 00:51:46,073 | 14_confound_permutation_nulls | INFO | [female-only] permutation 18/100: AUC=0.5926 (4.9s)
+2026-08-31 00:51:50,986 | 14_confound_permutation_nulls | INFO | [female-only] permutation 19/100: AUC=0.6106 (4.9s)
+2026-08-31 00:51:55,856 | 14_confound_permutation_nulls | INFO | [female-only] permutation 20/100: AUC=0.4698 (4.9s)
+2026-08-31 00:52:00,810 | 14_confound_permutation_nulls | INFO | [female-only] permutation 21/100: AUC=0.5907 (5.0s)
+2026-08-31 00:52:05,721 | 14_confound_permutation_nulls | INFO | [female-only] permutation 22/100: AUC=0.3994 (4.9s)
+2026-08-31 00:52:10,614 | 14_confound_permutation_nulls | INFO | [female-only] permutation 23/100: AUC=0.6559 (4.9s)
+2026-08-31 00:52:15,550 | 14_confound_permutation_nulls | INFO | [female-only] permutation 24/100: AUC=0.4452 (4.9s)
+2026-08-31 00:52:20,445 | 14_confound_permutation_nulls | INFO | [female-only] permutation 25/100: AUC=0.5596 (4.9s)
+2026-08-31 00:52:25,276 | 14_confound_permutation_nulls | INFO | [female-only] permutation 26/100: AUC=0.5484 (4.8s)
+2026-08-31 00:52:30,117 | 14_confound_permutation_nulls | INFO | [female-only] permutation 27/100: AUC=0.5149 (4.8s)
+2026-08-31 00:52:35,011 | 14_confound_permutation_nulls | INFO | [female-only] permutation 28/100: AUC=0.4187 (4.9s)
+2026-08-31 00:52:39,938 | 14_confound_permutation_nulls | INFO | [female-only] permutation 29/100: AUC=0.5537 (4.9s)
+2026-08-31 00:52:45,042 | 14_confound_permutation_nulls | INFO | [female-only] permutation 30/100: AUC=0.4028 (5.1s)
+2026-08-31 00:52:49,999 | 14_confound_permutation_nulls | INFO | [female-only] permutation 31/100: AUC=0.3645 (5.0s)
+2026-08-31 00:52:54,683 | 14_confound_permutation_nulls | INFO | [female-only] permutation 32/100: AUC=0.5599 (4.7s)
+2026-08-31 00:52:59,454 | 14_confound_permutation_nulls | INFO | [female-only] permutation 33/100: AUC=0.5591 (4.8s)
+2026-08-31 00:53:04,393 | 14_confound_permutation_nulls | INFO | [female-only] permutation 34/100: AUC=0.6202 (4.9s)
+2026-08-31 00:53:09,375 | 14_confound_permutation_nulls | INFO | [female-only] permutation 35/100: AUC=0.4570 (5.0s)
+2026-08-31 00:53:14,297 | 14_confound_permutation_nulls | INFO | [female-only] permutation 36/100: AUC=0.5725 (4.9s)
+2026-08-31 00:53:19,269 | 14_confound_permutation_nulls | INFO | [female-only] permutation 37/100: AUC=0.5074 (5.0s)
+2026-08-31 00:53:24,055 | 14_confound_permutation_nulls | INFO | [female-only] permutation 38/100: AUC=0.4752 (4.8s)
+2026-08-31 00:53:28,870 | 14_confound_permutation_nulls | INFO | [female-only] permutation 39/100: AUC=0.3744 (4.8s)
+2026-08-31 00:53:33,911 | 14_confound_permutation_nulls | INFO | [female-only] permutation 40/100: AUC=0.4203 (5.0s)
+2026-08-31 00:53:38,818 | 14_confound_permutation_nulls | INFO | [female-only] permutation 41/100: AUC=0.5044 (4.9s)
+2026-08-31 00:53:43,927 | 14_confound_permutation_nulls | INFO | [female-only] permutation 42/100: AUC=0.4972 (5.1s)
+2026-08-31 00:53:48,823 | 14_confound_permutation_nulls | INFO | [female-only] permutation 43/100: AUC=0.5964 (4.9s)
+2026-08-31 00:53:53,845 | 14_confound_permutation_nulls | INFO | [female-only] permutation 44/100: AUC=0.5626 (5.0s)
+2026-08-31 00:53:58,788 | 14_confound_permutation_nulls | INFO | [female-only] permutation 45/100: AUC=0.4189 (4.9s)
+2026-08-31 00:54:03,736 | 14_confound_permutation_nulls | INFO | [female-only] permutation 46/100: AUC=0.4961 (4.9s)
+2026-08-31 00:54:08,733 | 14_confound_permutation_nulls | INFO | [female-only] permutation 47/100: AUC=0.5591 (5.0s)
+2026-08-31 00:54:13,784 | 14_confound_permutation_nulls | INFO | [female-only] permutation 48/100: AUC=0.4814 (5.1s)
+2026-08-31 00:54:18,843 | 14_confound_permutation_nulls | INFO | [female-only] permutation 49/100: AUC=0.4567 (5.1s)
+2026-08-31 00:54:23,740 | 14_confound_permutation_nulls | INFO | [female-only] permutation 50/100: AUC=0.3940 (4.9s)
+2026-08-31 00:54:28,697 | 14_confound_permutation_nulls | INFO | [female-only] permutation 51/100: AUC=0.4731 (5.0s)
+2026-08-31 00:54:33,615 | 14_confound_permutation_nulls | INFO | [female-only] permutation 52/100: AUC=0.4846 (4.9s)
+2026-08-31 00:54:38,654 | 14_confound_permutation_nulls | INFO | [female-only] permutation 53/100: AUC=0.5449 (5.0s)
+2026-08-31 00:54:43,595 | 14_confound_permutation_nulls | INFO | [female-only] permutation 54/100: AUC=0.5618 (4.9s)
+2026-08-31 00:54:48,626 | 14_confound_permutation_nulls | INFO | [female-only] permutation 55/100: AUC=0.3431 (5.0s)
+2026-08-31 00:54:53,673 | 14_confound_permutation_nulls | INFO | [female-only] permutation 56/100: AUC=0.6017 (5.0s)
+2026-08-31 00:54:58,753 | 14_confound_permutation_nulls | INFO | [female-only] permutation 57/100: AUC=0.5275 (5.1s)
+2026-08-31 00:55:03,714 | 14_confound_permutation_nulls | INFO | [female-only] permutation 58/100: AUC=0.5489 (5.0s)
+2026-08-31 00:55:08,750 | 14_confound_permutation_nulls | INFO | [female-only] permutation 59/100: AUC=0.5063 (5.0s)
+2026-08-31 00:55:13,691 | 14_confound_permutation_nulls | INFO | [female-only] permutation 60/100: AUC=0.5465 (4.9s)
+2026-08-31 00:55:18,625 | 14_confound_permutation_nulls | INFO | [female-only] permutation 61/100: AUC=0.5200 (4.9s)
+2026-08-31 00:55:23,583 | 14_confound_permutation_nulls | INFO | [female-only] permutation 62/100: AUC=0.5720 (5.0s)
+2026-08-31 00:55:28,564 | 14_confound_permutation_nulls | INFO | [female-only] permutation 63/100: AUC=0.5586 (5.0s)
+2026-08-31 00:55:33,546 | 14_confound_permutation_nulls | INFO | [female-only] permutation 64/100: AUC=0.4918 (5.0s)
+2026-08-31 00:55:38,587 | 14_confound_permutation_nulls | INFO | [female-only] permutation 65/100: AUC=0.5454 (5.0s)
+2026-08-31 00:55:43,474 | 14_confound_permutation_nulls | INFO | [female-only] permutation 66/100: AUC=0.4369 (4.9s)
+2026-08-31 00:55:48,383 | 14_confound_permutation_nulls | INFO | [female-only] permutation 67/100: AUC=0.6419 (4.9s)
+2026-08-31 00:55:53,354 | 14_confound_permutation_nulls | INFO | [female-only] permutation 68/100: AUC=0.4363 (5.0s)
+2026-08-31 00:55:58,314 | 14_confound_permutation_nulls | INFO | [female-only] permutation 69/100: AUC=0.4398 (5.0s)
+2026-08-31 00:56:03,270 | 14_confound_permutation_nulls | INFO | [female-only] permutation 70/100: AUC=0.6165 (5.0s)
+2026-08-31 00:56:08,215 | 14_confound_permutation_nulls | INFO | [female-only] permutation 71/100: AUC=0.4578 (4.9s)
+2026-08-31 00:56:13,238 | 14_confound_permutation_nulls | INFO | [female-only] permutation 72/100: AUC=0.4983 (5.0s)
+2026-08-31 00:56:18,206 | 14_confound_permutation_nulls | INFO | [female-only] permutation 73/100: AUC=0.5210 (5.0s)
+2026-08-31 00:56:23,394 | 14_confound_permutation_nulls | INFO | [female-only] permutation 74/100: AUC=0.4940 (5.2s)
+2026-08-31 00:56:28,227 | 14_confound_permutation_nulls | INFO | [female-only] permutation 75/100: AUC=0.3728 (4.8s)
+2026-08-31 00:56:33,320 | 14_confound_permutation_nulls | INFO | [female-only] permutation 76/100: AUC=0.5406 (5.1s)
+2026-08-31 00:56:38,294 | 14_confound_permutation_nulls | INFO | [female-only] permutation 77/100: AUC=0.5610 (5.0s)
+2026-08-31 00:56:43,426 | 14_confound_permutation_nulls | INFO | [female-only] permutation 78/100: AUC=0.5162 (5.1s)
+2026-08-31 00:56:48,446 | 14_confound_permutation_nulls | INFO | [female-only] permutation 79/100: AUC=0.4551 (5.0s)
+2026-08-31 00:56:53,395 | 14_confound_permutation_nulls | INFO | [female-only] permutation 80/100: AUC=0.5730 (4.9s)
+2026-08-31 00:56:58,291 | 14_confound_permutation_nulls | INFO | [female-only] permutation 81/100: AUC=0.4366 (4.9s)
+2026-08-31 00:57:03,259 | 14_confound_permutation_nulls | INFO | [female-only] permutation 82/100: AUC=0.3849 (5.0s)
+2026-08-31 00:57:08,588 | 14_confound_permutation_nulls | INFO | [female-only] permutation 83/100: AUC=0.5543 (5.3s)
+2026-08-31 00:57:13,706 | 14_confound_permutation_nulls | INFO | [female-only] permutation 84/100: AUC=0.3825 (5.1s)
+2026-08-31 00:57:19,074 | 14_confound_permutation_nulls | INFO | [female-only] permutation 85/100: AUC=0.4937 (5.4s)
+2026-08-31 00:57:24,106 | 14_confound_permutation_nulls | INFO | [female-only] permutation 86/100: AUC=0.6376 (5.0s)
+2026-08-31 00:57:29,388 | 14_confound_permutation_nulls | INFO | [female-only] permutation 87/100: AUC=0.4910 (5.3s)
+2026-08-31 00:57:34,376 | 14_confound_permutation_nulls | INFO | [female-only] permutation 88/100: AUC=0.4227 (5.0s)
+2026-08-31 00:57:39,360 | 14_confound_permutation_nulls | INFO | [female-only] permutation 89/100: AUC=0.4757 (5.0s)
+2026-08-31 00:57:44,407 | 14_confound_permutation_nulls | INFO | [female-only] permutation 90/100: AUC=0.5259 (5.0s)
+2026-08-31 00:57:49,372 | 14_confound_permutation_nulls | INFO | [female-only] permutation 91/100: AUC=0.4996 (5.0s)
+2026-08-31 00:57:54,546 | 14_confound_permutation_nulls | INFO | [female-only] permutation 92/100: AUC=0.5331 (5.2s)
+2026-08-31 00:57:59,551 | 14_confound_permutation_nulls | INFO | [female-only] permutation 93/100: AUC=0.5130 (5.0s)
+2026-08-31 00:58:04,636 | 14_confound_permutation_nulls | INFO | [female-only] permutation 94/100: AUC=0.5084 (5.1s)
+2026-08-31 00:58:09,996 | 14_confound_permutation_nulls | INFO | [female-only] permutation 95/100: AUC=0.3951 (5.4s)
+2026-08-31 00:58:14,970 | 14_confound_permutation_nulls | INFO | [female-only] permutation 96/100: AUC=0.4897 (5.0s)
+2026-08-31 00:58:20,139 | 14_confound_permutation_nulls | INFO | [female-only] permutation 97/100: AUC=0.5846 (5.2s)
+2026-08-31 00:58:25,177 | 14_confound_permutation_nulls | INFO | [female-only] permutation 98/100: AUC=0.5570 (5.0s)
+2026-08-31 00:58:30,146 | 14_confound_permutation_nulls | INFO | [female-only] permutation 99/100: AUC=0.6575 (5.0s)
+2026-08-31 00:58:35,195 | 14_confound_permutation_nulls | INFO | [female-only] permutation 100/100: AUC=0.5787 (5.0s)
+2026-08-31 00:58:35,223 | 14_confound_permutation_nulls | WARNING | [female-only] null AUC: mean=0.5105 std=0.0705 min=0.3431 max=0.6575 | real AUC=0.7424 | empirical p=0.0099
+2026-08-31 00:58:41,487 | 14_confound_permutation_nulls | INFO | Autosomal-only reduced-grid real AUC = 0.8407 (n=189, 21064 genes)
+2026-08-31 00:58:47,763 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 1/100: AUC=0.4913 (6.3s)
+2026-08-31 00:58:53,945 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 2/100: AUC=0.5111 (6.2s)
+2026-08-31 00:59:00,351 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 3/100: AUC=0.4011 (6.4s)
+2026-08-31 00:59:06,799 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 4/100: AUC=0.3894 (6.4s)
+2026-08-31 00:59:13,902 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 5/100: AUC=0.5382 (7.1s)
+2026-08-31 00:59:20,150 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 6/100: AUC=0.5091 (6.2s)
+2026-08-31 00:59:26,381 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 7/100: AUC=0.4824 (6.2s)
+2026-08-31 00:59:32,752 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 8/100: AUC=0.5364 (6.4s)
+2026-08-31 00:59:39,244 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 9/100: AUC=0.5493 (6.5s)
+2026-08-31 00:59:45,400 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 10/100: AUC=0.5486 (6.2s)
+2026-08-31 00:59:51,916 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 11/100: AUC=0.4562 (6.5s)
+2026-08-31 00:59:58,339 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 12/100: AUC=0.4297 (6.4s)
+2026-08-31 01:00:04,806 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 13/100: AUC=0.5492 (6.5s)
+2026-08-31 01:00:10,935 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 14/100: AUC=0.5407 (6.1s)
+2026-08-31 01:00:17,300 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 15/100: AUC=0.3911 (6.4s)
+2026-08-31 01:00:23,677 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 16/100: AUC=0.5693 (6.4s)
+2026-08-31 01:00:30,026 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 17/100: AUC=0.4132 (6.3s)
+2026-08-31 01:00:36,379 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 18/100: AUC=0.5465 (6.4s)
+2026-08-31 01:00:42,732 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 19/100: AUC=0.5398 (6.4s)
+2026-08-31 01:00:49,114 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 20/100: AUC=0.5726 (6.4s)
+2026-08-31 01:00:55,453 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 21/100: AUC=0.5157 (6.3s)
+2026-08-31 01:01:01,921 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 22/100: AUC=0.3986 (6.5s)
+2026-08-31 01:01:08,181 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 23/100: AUC=0.5100 (6.3s)
+2026-08-31 01:01:14,525 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 24/100: AUC=0.5321 (6.3s)
+2026-08-31 01:01:20,902 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 25/100: AUC=0.4054 (6.4s)
+2026-08-31 01:01:27,394 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 26/100: AUC=0.4549 (6.5s)
+2026-08-31 01:01:33,780 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 27/100: AUC=0.5987 (6.4s)
+2026-08-31 01:01:39,759 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 28/100: AUC=0.5155 (6.0s)
+2026-08-31 01:01:46,800 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 29/100: AUC=0.6297 (7.0s)
+2026-08-31 01:01:53,486 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 30/100: AUC=0.4672 (6.7s)
+2026-08-31 01:01:59,647 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 31/100: AUC=0.4061 (6.2s)
+2026-08-31 01:02:05,971 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 32/100: AUC=0.5335 (6.3s)
+2026-08-31 01:02:12,145 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 33/100: AUC=0.5205 (6.2s)
+2026-08-31 01:02:18,326 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 34/100: AUC=0.4989 (6.2s)
+2026-08-31 01:02:24,688 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 35/100: AUC=0.4481 (6.4s)
+2026-08-31 01:02:30,961 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 36/100: AUC=0.5008 (6.3s)
+2026-08-31 01:02:37,957 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 37/100: AUC=0.4683 (7.0s)
+2026-08-31 01:02:44,280 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 38/100: AUC=0.6147 (6.3s)
+2026-08-31 01:02:50,893 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 39/100: AUC=0.5811 (6.6s)
+2026-08-31 01:02:57,420 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 40/100: AUC=0.4562 (6.5s)
+2026-08-31 01:03:03,661 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 41/100: AUC=0.5085 (6.2s)
+2026-08-31 01:03:10,064 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 42/100: AUC=0.5375 (6.4s)
+2026-08-31 01:03:16,499 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 43/100: AUC=0.4135 (6.4s)
+2026-08-31 01:03:22,775 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 44/100: AUC=0.4042 (6.3s)
+2026-08-31 01:03:29,204 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 45/100: AUC=0.5029 (6.4s)
+2026-08-31 01:03:35,569 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 46/100: AUC=0.4754 (6.4s)
+2026-08-31 01:03:41,768 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 47/100: AUC=0.4914 (6.2s)
+2026-08-31 01:03:47,865 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 48/100: AUC=0.3949 (6.1s)
+2026-08-31 01:03:54,264 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 49/100: AUC=0.5401 (6.4s)
+2026-08-31 01:04:00,801 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 50/100: AUC=0.5309 (6.5s)
+2026-08-31 01:04:07,115 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 51/100: AUC=0.5277 (6.3s)
+2026-08-31 01:04:13,357 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 52/100: AUC=0.5631 (6.2s)
+2026-08-31 01:04:19,695 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 53/100: AUC=0.5269 (6.3s)
+2026-08-31 01:04:26,234 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 54/100: AUC=0.4303 (6.5s)
+2026-08-31 01:04:32,711 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 55/100: AUC=0.5125 (6.5s)
+2026-08-31 01:04:39,003 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 56/100: AUC=0.5591 (6.3s)
+2026-08-31 01:04:45,149 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 57/100: AUC=0.5810 (6.1s)
+2026-08-31 01:04:51,821 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 58/100: AUC=0.5481 (6.7s)
+2026-08-31 01:04:58,128 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 59/100: AUC=0.4928 (6.3s)
+2026-08-31 01:05:04,473 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 60/100: AUC=0.5484 (6.3s)
+2026-08-31 01:05:10,595 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 61/100: AUC=0.5309 (6.1s)
+2026-08-31 01:05:17,033 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 62/100: AUC=0.5404 (6.4s)
+2026-08-31 01:05:23,211 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 63/100: AUC=0.4022 (6.2s)
+2026-08-31 01:05:29,512 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 64/100: AUC=0.5056 (6.3s)
+2026-08-31 01:05:35,709 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 65/100: AUC=0.5643 (6.2s)
+2026-08-31 01:05:41,884 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 66/100: AUC=0.5736 (6.2s)
+2026-08-31 01:05:48,310 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 67/100: AUC=0.4748 (6.4s)
+2026-08-31 01:05:54,565 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 68/100: AUC=0.4214 (6.3s)
+2026-08-31 01:06:00,775 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 69/100: AUC=0.4971 (6.2s)
+2026-08-31 01:06:06,952 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 70/100: AUC=0.5669 (6.2s)
+2026-08-31 01:06:13,128 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 71/100: AUC=0.4908 (6.2s)
+2026-08-31 01:06:19,353 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 72/100: AUC=0.4421 (6.2s)
+2026-08-31 01:06:25,677 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 73/100: AUC=0.4932 (6.3s)
+2026-08-31 01:06:32,504 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 74/100: AUC=0.3771 (6.8s)
+2026-08-31 01:06:38,752 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 75/100: AUC=0.4578 (6.2s)
+2026-08-31 01:06:45,252 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 76/100: AUC=0.5444 (6.5s)
+2026-08-31 01:06:51,530 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 77/100: AUC=0.3817 (6.3s)
+2026-08-31 01:06:57,714 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 78/100: AUC=0.5553 (6.2s)
+2026-08-31 01:07:04,088 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 79/100: AUC=0.4965 (6.4s)
+2026-08-31 01:07:10,615 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 80/100: AUC=0.5028 (6.5s)
+2026-08-31 01:07:17,202 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 81/100: AUC=0.4500 (6.6s)
+2026-08-31 01:07:23,802 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 82/100: AUC=0.4955 (6.6s)
+2026-08-31 01:07:29,990 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 83/100: AUC=0.5149 (6.2s)
+2026-08-31 01:07:36,186 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 84/100: AUC=0.5296 (6.2s)
+2026-08-31 01:07:42,405 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 85/100: AUC=0.5202 (6.2s)
+2026-08-31 01:07:48,670 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 86/100: AUC=0.5316 (6.3s)
+2026-08-31 01:07:54,875 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 87/100: AUC=0.5383 (6.2s)
+2026-08-31 01:08:01,507 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 88/100: AUC=0.4928 (6.6s)
+2026-08-31 01:08:08,049 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 89/100: AUC=0.4894 (6.5s)
+2026-08-31 01:08:14,411 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 90/100: AUC=0.5265 (6.4s)
+2026-08-31 01:08:21,466 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 91/100: AUC=0.4808 (7.1s)
+2026-08-31 01:08:27,883 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 92/100: AUC=0.5591 (6.4s)
+2026-08-31 01:08:34,339 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 93/100: AUC=0.5041 (6.5s)
+2026-08-31 01:08:40,788 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 94/100: AUC=0.5814 (6.4s)
+2026-08-31 01:08:47,235 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 95/100: AUC=0.6097 (6.4s)
+2026-08-31 01:08:53,686 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 96/100: AUC=0.3954 (6.5s)
+2026-08-31 01:08:59,820 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 97/100: AUC=0.4133 (6.1s)
+2026-08-31 01:09:05,977 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 98/100: AUC=0.4308 (6.2s)
+2026-08-31 01:09:12,291 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 99/100: AUC=0.5008 (6.3s)
+2026-08-31 01:09:18,536 | 14_confound_permutation_nulls | INFO | [autosomal-only] permutation 100/100: AUC=0.4778 (6.2s)
+2026-08-31 01:09:18,538 | 14_confound_permutation_nulls | WARNING | [autosomal-only] null AUC: mean=0.4997 std=0.0587 min=0.3771 max=0.6297 | real AUC=0.8407 | empirical p=0.0099
+2026-08-31 01:09:18,990 | 14_confound_permutation_nulls | INFO | Wrote results/permutation_null_female_only.csv, results/permutation_null_autosomal_only.csv, figures/permutation_null_confound_checks.png
+2026-09-02 17:16:43,952 | 17_pipeline_diagram | INFO | Wrote figures/pipeline_diagram.png
+2026-09-02 17:18:20,211 | 17_pipeline_diagram | INFO | Wrote figures/pipeline_diagram.png
+2026-09-04 19:15:13,623 | 17_pipeline_diagram | INFO | Wrote figures/pipeline_diagram.png
+2026-09-04 20:52:23,168 | 09_sex_confound_check | WARNING | Sex/label contingency table:
+sex      Female  Male
+label                
+Control      41    52
+FM           91     5
+2026-09-04 20:52:23,169 | 09_sex_confound_check | WARNING | Sex is NOT balanced between FM and Control (chi2=55.2785, p=1.05e-13). This is a genuine confound risk for any classifier trained on the whole cohort.
+2026-09-04 20:52:24,914 | 09_sex_confound_check | WARNING | Sex-ONLY classifier (no gene expression) AUC = 0.727 (95% CI 0.648-0.798, plain 5-fold CV, no inner tuning loop — simpler estimation than the nested-CV numbers it's compared against, so treat this CI as approximate). The full gene-expression model's nested-CV AUC (~0.82-0.86, see performance_summary.csv) must be read relative to this floor, not relative to chance (0.5).
+2026-09-04 20:52:24,939 | 09_sex_confound_check | INFO | Female-only subset: n=132 (FM=91, Control=41)
+2026-09-04 20:52:36,051 | 09_sex_confound_check | INFO | [female-only] outer fold 1/5: AUC=0.678 PR-AUC=0.885 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-09-04 20:52:45,013 | 09_sex_confound_check | INFO | [female-only] outer fold 2/5: AUC=0.747 PR-AUC=0.898 best_params={'clf__C': 0.1, 'clf__penalty': 'l2', 'select__k': 200}
+2026-09-04 20:52:53,827 | 09_sex_confound_check | INFO | [female-only] outer fold 3/5: AUC=0.840 PR-AUC=0.934 best_params={'clf__C': 0.01, 'clf__penalty': 'l2', 'select__k': 100}
+2026-09-04 20:53:02,625 | 09_sex_confound_check | INFO | [female-only] outer fold 4/5: AUC=0.785 PR-AUC=0.904 best_params={'clf__C': 0.01, 'clf__penalty': 'l2', 'select__k': 200}
+2026-09-04 20:53:11,486 | 09_sex_confound_check | INFO | [female-only] outer fold 5/5: AUC=0.847 PR-AUC=0.940 best_params={'clf__C': 0.1, 'clf__penalty': 'l2', 'select__k': 200}
+2026-09-04 20:53:13,312 | 09_sex_confound_check | WARNING | Female-only nested-CV AUC = 0.783 [0.705, 0.858] (n=132, FM=91/Control=41) vs. whole-cohort AUC ~0.82 (confounded by sex) and sex-only-classifier floor of 0.727.
+2026-09-04 20:53:13,323 | 09_sex_confound_check | INFO | Wrote results/sex_confound_summary.csv and results/performance_summary_female_only.csv
+2026-09-04 21:51:09,554 | 18_gsea_pathway_check | INFO | Preranked gene list: 21374 unique gene symbols (from 21915 expression columns, 541 dropped for missing symbol, 47 duplicate symbols collapsed to most extreme)
+2026-09-04 21:51:10,305 | 18_gsea_pathway_check | INFO | Wrote results/gsea_pathway_results.csv
+2026-09-04 21:51:10,305 | 18_gsea_pathway_check | INFO | GSEA FM2_CLEAR_lysosomal: NES=-2.745717072764452 ES=-0.8561479784541541 p=0.0 FDR q=0.0 matched_genes=20/23
+2026-09-04 21:51:10,305 | 18_gsea_pathway_check | INFO | GSEA FM3_FM4_interferon_JAKSTAT_death_receptor: NES=-2.1237525659550203 ES=-0.6208450558734757 p=0.0 FDR q=0.0 matched_genes=15/30
+2026-09-04 21:51:10,307 | 18_gsea_pathway_check | INFO | GSEA FM1_ECM_RhoGDI_collagen_GP6: NES=-1.281315327592466 ES=-0.36794675445601205 p=0.1044776119402985 FDR q=0.11996497373029773 matched_genes=14/35
+2026-09-04 21:51:11,604 | 18_gsea_pathway_check | INFO | At least one pathway reaches conventional GSEA significance (FDR q<0.25).
+2026-09-04 21:57:44,244 | 18_gsea_pathway_check | INFO | Preranked gene list: 21374 unique gene symbols (from 21915 expression columns, 541 dropped for missing symbol, 47 duplicate symbols collapsed to most extreme)
+2026-09-04 21:57:45,200 | 18_gsea_pathway_check | INFO | Wrote results/gsea_pathway_results.csv
+2026-09-04 21:57:45,200 | 18_gsea_pathway_check | INFO | GSEA FM2_CLEAR_lysosomal: NES=-2.745717072764452 ES=-0.8561479784541541 p=0.0 FDR q=0.0 matched_genes=20/23
+2026-09-04 21:57:45,200 | 18_gsea_pathway_check | INFO | GSEA FM3_FM4_interferon_JAKSTAT_death_receptor: NES=-2.1237525659550203 ES=-0.6208450558734757 p=0.0 FDR q=0.0 matched_genes=15/30
+2026-09-04 21:57:45,200 | 18_gsea_pathway_check | INFO | GSEA FM1_ECM_RhoGDI_collagen_GP6: NES=-1.281315327592466 ES=-0.36794675445601205 p=0.1044776119402985 FDR q=0.11996497373029773 matched_genes=14/35
+2026-09-04 21:57:47,268 | 18_gsea_pathway_check | INFO | Wrote figures/gsea_fm2_fm3.png (composite FM2/FM3 enrichment plot)
+2026-09-04 21:57:47,270 | 18_gsea_pathway_check | INFO | At least one pathway reaches conventional GSEA significance (FDR q<0.25).
+2026-09-05 21:24:12,392 | 19_featsel_moderated_ttest_robustness | INFO | moderated-t-test-selection outer fold 1/5: AUC=0.739 PR-AUC=0.811 best_params={'clf__C': 1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-09-05 21:24:15,801 | 19_featsel_moderated_ttest_robustness | INFO | moderated-t-test-selection outer fold 2/5: AUC=0.884 PR-AUC=0.898 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 50}
+2026-09-05 21:24:19,214 | 19_featsel_moderated_ttest_robustness | INFO | moderated-t-test-selection outer fold 3/5: AUC=0.884 PR-AUC=0.905 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 100}
+2026-09-05 21:24:22,535 | 19_featsel_moderated_ttest_robustness | INFO | moderated-t-test-selection outer fold 4/5: AUC=0.861 PR-AUC=0.847 best_params={'clf__C': 10, 'clf__penalty': 'l2', 'select__k': 200}
+2026-09-05 21:24:25,929 | 19_featsel_moderated_ttest_robustness | INFO | moderated-t-test-selection outer fold 5/5: AUC=0.813 PR-AUC=0.874 best_params={'clf__C': 0.1, 'clf__penalty': 'l2', 'select__k': 100}
+2026-09-05 21:24:33,388 | 19_featsel_moderated_ttest_robustness | INFO | Robustness check: moderated t-test feature selection AUC=0.822 (95% CI 0.757-0.883) vs. Mann-Whitney U AUC=0.821 (same logreg model family, same outer/inner CV structure, identical fold assignments). Paired bootstrap difference (moderated-t - MW) = 0.001 (95% CI -0.040 to 0.044) - CI includes zero: the shift is not statistically distinguishable from sampling noise.
+2026-09-05 21:24:33,388 | 19_featsel_moderated_ttest_robustness | INFO | Wrote results/performance_summary_moderated_ttest_robustness.csv and results/featsel_moderated_ttest_vs_mannwhitney_diff_test.csv

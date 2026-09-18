@@ -1,0 +1,2 @@
+n_female_subjects,auc_whole_cohort_model_on_females,auc_female_only_model_on_females,paired_bootstrap_diff_mean,paired_bootstrap_diff_ci_lo,paired_bootstrap_diff_ci_hi,diff_ci_excludes_zero,approx_two_sided_p
+132,0.7756633610292147,0.7829000268024656,-0.007116652898584022,-0.07625444428891381,0.05963045912653975,False,0.8544

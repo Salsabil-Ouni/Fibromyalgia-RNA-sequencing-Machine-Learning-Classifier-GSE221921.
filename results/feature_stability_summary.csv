@@ -1,0 +1,2 @@
+n_repeats,n_outer_folds_per_repeat,n_total_folds,n_unique_genes_ever_selected,mean_pairwise_jaccard,median_pairwise_jaccard,std_pairwise_jaccard,shap_top30_crosscheck
+10,5,50,839,0.29502260291722104,0.2987012987012987,0.07519976587121996,Mean selection frequency of the SHAP top-30 genes = 0.851 (vs. 0.172 mean over all genes ever selected); 30/30 of the SHAP top genes were selected in >=50% of the 50 stability folds.
