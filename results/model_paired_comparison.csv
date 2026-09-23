@@ -1,0 +1,2 @@
+auc_logreg,auc_xgboost,paired_diff_mean,paired_diff_ci_lo,paired_diff_ci_hi,ci_excludes_zero
+0.8207885304659499,0.8247087813620072,0.004726634166967701,-0.031360434465317034,0.04308861475624728,False

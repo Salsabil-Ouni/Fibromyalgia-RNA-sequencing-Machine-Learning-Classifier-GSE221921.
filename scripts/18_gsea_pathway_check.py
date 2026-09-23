@@ -65,10 +65,9 @@ def main():
         subset="Hugo_Gene_Symbol", keep="first"
     )
     ranked = scores.set_index("Hugo_Gene_Symbol")["signed_score"].sort_values(ascending=False)
-    logger.info("Preranked gene list: %d unique gene symbols (from %d expression columns, "
-                "%d dropped for missing symbol, %d duplicate symbols collapsed to most extreme)",
-                len(ranked), expr.shape[1], expr.shape[1] - len(scores) - 0,
-                47)
+    logger.info("Preranked gene list: %d unique gene symbols (from %d expression columns; %d rows "
+                "removed in total: missing Hugo symbol, or duplicate symbol collapsed to the most "
+                "extreme row)", len(ranked), expr.shape[1], expr.shape[1] - len(ranked))
 
     gene_sets_for_gseapy = {name: [g for g in genes] for name, genes in GENE_SETS.items()}
 
@@ -92,7 +91,7 @@ def main():
 
     for _, row in res_df.iterrows():
         logger.info(
-            "GSEA %s: NES=%s ES=%s p=%s FDR q=%s matched_genes=%s",
+            "GSEA %s: NES=%s ES=%s p=%s FDR q=%s leading_edge=%s",
             row.get("Term"), row.get("NES"), row.get("ES"),
             row.get("NOM p-val"), row.get("FDR q-val"), row.get("Tag %"),
         )

@@ -40,7 +40,7 @@ logger = get_logger("12_learning_curve")
 set_global_seed()
 
 FRACTIONS = [0.3, 0.5, 0.7, 0.85, 1.0]
-N_REPEATS = 5
+N_REPEATS = 20
 N_OUTER, N_INNER = 5, 3
 
 PIPELINE = Pipeline([

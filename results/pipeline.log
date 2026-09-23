@@ -716,3 +716,47 @@ FM           91     5
 2026-09-05 21:24:25,929 | 19_featsel_moderated_ttest_robustness | INFO | moderated-t-test-selection outer fold 5/5: AUC=0.813 PR-AUC=0.874 best_params={'clf__C': 0.1, 'clf__penalty': 'l2', 'select__k': 100}
 2026-09-05 21:24:33,388 | 19_featsel_moderated_ttest_robustness | INFO | Robustness check: moderated t-test feature selection AUC=0.822 (95% CI 0.757-0.883) vs. Mann-Whitney U AUC=0.821 (same logreg model family, same outer/inner CV structure, identical fold assignments). Paired bootstrap difference (moderated-t - MW) = 0.001 (95% CI -0.040 to 0.044) - CI includes zero: the shift is not statistically distinguishable from sampling noise.
 2026-09-05 21:24:33,388 | 19_featsel_moderated_ttest_robustness | INFO | Wrote results/performance_summary_moderated_ttest_robustness.csv and results/featsel_moderated_ttest_vs_mannwhitney_diff_test.csv
+2026-09-18 15:15:33,130 | 12_learning_curve | INFO | fraction=0.30 (~46 train samples): AUC=0.806 +/- 0.079 over 100 fold-evals (1167.3s)
+2026-09-18 15:36:28,474 | 12_learning_curve | INFO | fraction=0.50 (~76 train samples): AUC=0.809 +/- 0.081 over 100 fold-evals (1255.3s)
+2026-09-18 15:58:53,667 | 12_learning_curve | INFO | fraction=0.70 (~106 train samples): AUC=0.828 +/- 0.060 over 100 fold-evals (1345.2s)
+2026-09-18 22:24:42,917 | 12_learning_curve | INFO | fraction=0.85 (~129 train samples): AUC=0.834 +/- 0.067 over 100 fold-evals (23149.2s)
+2026-09-18 23:35:52,219 | 12_learning_curve | INFO | fraction=1.00 (~152 train samples): AUC=0.842 +/- 0.063 over 100 fold-evals (4269.3s)
+2026-09-18 23:35:52,229 | 12_learning_curve | INFO | Wrote results/learning_curve.csv
+2026-09-18 23:35:52,438 | 12_learning_curve | INFO | Wrote figures/learning_curve.png
+2026-09-21 18:00:34,866 | 20_additional_sensitivity_checks | INFO | Female-only subset: n=132 (FM=91, Control=41)
+2026-09-21 18:00:38,247 | 20_additional_sensitivity_checks | INFO | Female-only GSEA ranked 21374 genes
+2026-09-21 18:00:41,938 | 20_additional_sensitivity_checks | INFO | female_only | FM2_CLEAR_lysosomal: NES=-2.563 p=0.0 FDR q=0.0 leading_edge=20/23
+2026-09-21 18:00:41,938 | 20_additional_sensitivity_checks | INFO | female_only | FM3_FM4_interferon_JAKSTAT_death_receptor: NES=-2.096 p=0.0 FDR q=0.0 leading_edge=17/30
+2026-09-21 18:00:41,939 | 20_additional_sensitivity_checks | INFO | female_only | FM1_ECM_RhoGDI_collagen_GP6: NES=-1.166 p=0.20334261838440112 FDR q=0.22953736654804271 leading_edge=19/35
+2026-09-21 18:00:41,939 | 20_additional_sensitivity_checks | INFO | female_only_composition_adjusted | FM3_FM4_interferon_JAKSTAT_death_receptor: NES=-1.072 p=0.3068181818181818 FDR q=0.653393665158371 leading_edge=8/30
+2026-09-21 18:00:41,939 | 20_additional_sensitivity_checks | INFO | female_only_composition_adjusted | FM2_CLEAR_lysosomal: NES=0.769 p=0.8051529790660226 FDR q=0.8321899736147758 leading_edge=1/23
+2026-09-21 18:00:41,939 | 20_additional_sensitivity_checks | INFO | female_only_composition_adjusted | FM1_ECM_RhoGDI_collagen_GP6: NES=-0.714 p=0.9224598930481284 FDR q=0.9049773755656109 leading_edge=2/35
+2026-09-21 18:00:45,282 | 20_additional_sensitivity_checks | INFO | XGBoost - logreg paired AUC difference = 0.005 (95% CI -0.031 to 0.043)
+2026-09-21 18:01:18,024 | 20_additional_sensitivity_checks | INFO | Female-only subset: n=132 (FM=91, Control=41)
+2026-09-21 18:01:21,494 | 20_additional_sensitivity_checks | INFO | Female-only GSEA ranked 21374 genes
+2026-09-21 18:01:25,100 | 20_additional_sensitivity_checks | INFO | female_only | FM2_CLEAR_lysosomal: NES=-2.563 p=0.0 FDR q=0.0 leading_edge=20/23
+2026-09-21 18:01:25,100 | 20_additional_sensitivity_checks | INFO | female_only | FM3_FM4_interferon_JAKSTAT_death_receptor: NES=-2.096 p=0.0 FDR q=0.0 leading_edge=17/30
+2026-09-21 18:01:25,100 | 20_additional_sensitivity_checks | INFO | female_only | FM1_ECM_RhoGDI_collagen_GP6: NES=-1.166 p=0.20334261838440112 FDR q=0.22953736654804271 leading_edge=19/35
+2026-09-21 18:01:25,101 | 20_additional_sensitivity_checks | INFO | female_only_composition_adjusted | FM3_FM4_interferon_JAKSTAT_death_receptor: NES=-1.072 p=0.3068181818181818 FDR q=0.653393665158371 leading_edge=8/30
+2026-09-21 18:01:25,101 | 20_additional_sensitivity_checks | INFO | female_only_composition_adjusted | FM2_CLEAR_lysosomal: NES=0.769 p=0.8051529790660226 FDR q=0.8321899736147758 leading_edge=1/23
+2026-09-21 18:01:25,101 | 20_additional_sensitivity_checks | INFO | female_only_composition_adjusted | FM1_ECM_RhoGDI_collagen_GP6: NES=-0.714 p=0.9224598930481284 FDR q=0.9049773755656109 leading_edge=2/35
+2026-09-21 18:01:27,049 | 20_additional_sensitivity_checks | INFO | Composition-only baseline [whole_cohort, monocyte_score_only]: AUC=0.731 (95% CI 0.655-0.803)
+2026-09-21 18:01:28,780 | 20_additional_sensitivity_checks | INFO | Composition-only baseline [whole_cohort, four_composition_scores]: AUC=0.755 (95% CI 0.683-0.823)
+2026-09-21 18:01:30,489 | 20_additional_sensitivity_checks | INFO | Composition-only baseline [female_only, monocyte_score_only]: AUC=0.698 (95% CI 0.595-0.796)
+2026-09-21 18:01:32,202 | 20_additional_sensitivity_checks | INFO | Composition-only baseline [female_only, four_composition_scores]: AUC=0.712 (95% CI 0.609-0.801)
+2026-09-21 18:01:35,509 | 20_additional_sensitivity_checks | INFO | XGBoost - logreg paired AUC difference = 0.005 (95% CI -0.031 to 0.043)
+2026-09-21 18:02:02,070 | 20_additional_sensitivity_checks | INFO | Female-only subset: n=132 (FM=91, Control=41)
+2026-09-21 18:02:05,414 | 20_additional_sensitivity_checks | INFO | Female-only GSEA ranked 21374 genes
+2026-09-21 18:02:08,855 | 20_additional_sensitivity_checks | INFO | female_only | FM2_CLEAR_lysosomal: NES=-2.563 p=0.0 FDR q=0.0 leading_edge=20/23
+2026-09-21 18:02:08,855 | 20_additional_sensitivity_checks | INFO | female_only | FM3_FM4_interferon_JAKSTAT_death_receptor: NES=-2.096 p=0.0 FDR q=0.0 leading_edge=17/30
+2026-09-21 18:02:08,855 | 20_additional_sensitivity_checks | INFO | female_only | FM1_ECM_RhoGDI_collagen_GP6: NES=-1.166 p=0.20334261838440112 FDR q=0.22953736654804271 leading_edge=19/35
+2026-09-21 18:02:08,856 | 20_additional_sensitivity_checks | INFO | female_only_composition_adjusted | FM3_FM4_interferon_JAKSTAT_death_receptor: NES=-1.072 p=0.3068181818181818 FDR q=0.653393665158371 leading_edge=8/30
+2026-09-21 18:02:08,856 | 20_additional_sensitivity_checks | INFO | female_only_composition_adjusted | FM2_CLEAR_lysosomal: NES=0.769 p=0.8051529790660226 FDR q=0.8321899736147758 leading_edge=1/23
+2026-09-21 18:02:08,856 | 20_additional_sensitivity_checks | INFO | female_only_composition_adjusted | FM1_ECM_RhoGDI_collagen_GP6: NES=-0.714 p=0.9224598930481284 FDR q=0.9049773755656109 leading_edge=2/35
+2026-09-21 18:02:10,621 | 20_additional_sensitivity_checks | INFO | Composition-only baseline [whole_cohort, monocyte_score_only]: AUC=0.731 (95% CI 0.655-0.803)
+2026-09-21 18:02:12,330 | 20_additional_sensitivity_checks | INFO | Composition-only baseline [whole_cohort, four_composition_scores]: AUC=0.755 (95% CI 0.683-0.823)
+2026-09-21 18:02:14,027 | 20_additional_sensitivity_checks | INFO | Composition-only baseline [female_only, monocyte_score_only]: AUC=0.698 (95% CI 0.595-0.796)
+2026-09-21 18:02:15,722 | 20_additional_sensitivity_checks | INFO | Composition-only baseline [female_only, four_composition_scores]: AUC=0.712 (95% CI 0.609-0.801)
+2026-09-21 18:02:18,987 | 20_additional_sensitivity_checks | INFO | Female-only expression model minus composition-only baseline: paired AUC difference = 0.072 (95% CI -0.025 to 0.175)
+2026-09-21 18:02:22,181 | 20_additional_sensitivity_checks | INFO | XGBoost - logreg paired AUC difference = 0.005 (95% CI -0.031 to 0.043)
+2026-09-23 15:49:14,131 | 17_pipeline_diagram | INFO | Wrote figures/pipeline_diagram.png
