@@ -760,3 +760,280 @@ FM           91     5
 2026-09-21 18:02:18,987 | 20_additional_sensitivity_checks | INFO | Female-only expression model minus composition-only baseline: paired AUC difference = 0.072 (95% CI -0.025 to 0.175)
 2026-09-21 18:02:22,181 | 20_additional_sensitivity_checks | INFO | XGBoost - logreg paired AUC difference = 0.005 (95% CI -0.031 to 0.043)
 2026-09-23 15:49:14,131 | 17_pipeline_diagram | INFO | Wrote figures/pipeline_diagram.png
+2026-09-23 16:17:31,978 | 17_pipeline_diagram | INFO | Wrote figures/pipeline_diagram.png
+2026-09-23 18:34:35,298 | 17_pipeline_diagram | INFO | Wrote figures/pipeline_diagram.png
+2026-10-08 15:35:47,769 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 0-1000 / 21915
+2026-10-08 15:36:09,527 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 1000-2000 / 21915
+2026-10-08 15:37:19,228 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 2000-3000 / 21915
+2026-10-08 15:38:50,519 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 3000-4000 / 21915
+2026-10-08 15:39:42,143 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 4000-5000 / 21915
+2026-10-08 15:40:09,135 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 5000-6000 / 21915
+2026-10-08 15:41:02,069 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 6000-7000 / 21915
+2026-10-08 15:41:33,125 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 7000-8000 / 21915
+2026-10-08 15:41:59,520 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 8000-9000 / 21915
+2026-10-08 15:42:52,983 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 9000-10000 / 21915
+2026-10-08 15:43:40,903 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 10000-11000 / 21915
+2026-10-08 15:44:44,617 | fetch_gene_biotypes | WARNING | Batch starting at 11000 failed (attempt 1): The read operation timed out; retrying
+2026-10-08 15:45:47,712 | fetch_gene_biotypes | WARNING | Batch starting at 11000 failed (attempt 2): The read operation timed out; retrying
+2026-10-08 15:46:14,311 | 05_shap_explain | INFO | Best model family by nested-CV AUC: xgboost (see performance_summary.csv for the locked-in CV estimate; this script's own internal CV score below is NOT that estimate and must not be reported as one).
+2026-10-08 15:46:46,643 | 05_shap_explain | INFO | Refit xgboost on full dataset for interpretation. best_params={'clf__learning_rate': 0.1, 'clf__max_depth': 3, 'clf__n_estimators': 100, 'select__k': 50}, full-data CV AUC=0.841 (interpretation-only number, not a held-out estimate)
+2026-10-08 15:46:46,675 | 05_shap_explain | INFO | Computing SHAP values for 50 selected features...
+2026-10-08 15:46:46,982 | 05_shap_explain | INFO | Wrote results/shap_feature_importance.csv (50 genes, model=xgboost)
+2026-10-08 15:46:50,735 | 05_shap_explain | INFO | Wrote figures/shap_summary.png
+2026-10-08 15:46:52,750 | 05_shap_explain | INFO | Wrote figures/shap_dependence_top_genes.png
+2026-10-08 15:47:10,208 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 11000-12000 / 21915
+2026-10-08 15:48:17,461 | fetch_gene_biotypes | WARNING | Batch starting at 12000 failed (attempt 1): The read operation timed out; retrying
+2026-10-08 15:49:28,216 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 12000-13000 / 21915
+2026-10-08 15:50:28,008 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 13000-14000 / 21915
+2026-10-08 15:51:23,080 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 14000-15000 / 21915
+2026-10-08 15:51:27,915 | fetch_gene_biotypes | WARNING | Batch starting at 15000 failed (attempt 1): HTTP Error 500: Internal Server Error; retrying
+2026-10-08 15:52:16,945 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 15000-16000 / 21915
+2026-10-08 15:52:44,468 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 16000-17000 / 21915
+2026-10-08 15:53:15,111 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 17000-18000 / 21915
+2026-10-08 15:53:18,654 | fetch_gene_biotypes | WARNING | Batch starting at 18000 failed (attempt 1): HTTP Error 500: Internal Server Error; retrying
+2026-10-08 15:53:23,024 | fetch_gene_biotypes | WARNING | Batch starting at 18000 failed (attempt 2): HTTP Error 500: Internal Server Error; retrying
+2026-10-08 15:54:24,868 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 18000-19000 / 21915
+2026-10-08 15:55:03,155 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 19000-20000 / 21915
+2026-10-08 15:55:26,430 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 20000-21000 / 21915
+2026-10-08 15:55:48,610 | fetch_gene_biotypes | INFO | Fetched biotypes for genes 21000-21915 / 21915
+2026-10-08 15:55:48,900 | fetch_gene_biotypes | INFO | Wrote D:\Desktop\fibromyalgia_rnaseq\data\processed\gene_biotypes.csv (21915 rows); biotype value counts:
+biotype
+protein_coding                        16834
+processed_pseudogene                   1631
+lncRNA                                 1045
+None                                    540
+transcribed_unprocessed_pseudogene      502
+transcribed_processed_pseudogene        285
+unprocessed_pseudogene                  273
+miRNA                                   183
+snoRNA                                  134
+rRNA_pseudogene                         111
+TEC                                      71
+transcribed_unitary_pseudogene           52
+TR_V_gene                                49
+IG_V_gene                                45
+misc_RNA                                 43
+snRNA                                    23
+Mt_tRNA                                  18
+scaRNA                                   14
+rRNA                                     11
+TR_C_gene                                 8
+TR_J_gene                                 8
+IG_C_gene                                 7
+TR_V_pseudogene                           5
+IG_V_pseudogene                           4
+unitary_pseudogene                        4
+IG_J_gene                                 3
+IG_C_pseudogene                           3
+artifact                                  3
+Mt_rRNA                                   2
+translated_processed_pseudogene           2
+ribozyme                                  2
+2026-10-08 15:57:19,308 | 21_protein_coding_only_check | INFO | Biotype resolved for 21375 / 21915 genes (540 unresolved, e.g. retired Ensembl IDs); 16834 / 21915 genes are protein_coding and retained as the candidate pool.
+2026-10-08 15:57:32,551 | 21_protein_coding_only_check | INFO | [protein-coding-only] outer fold 1/5: AUC=0.717 PR-AUC=0.796 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-10-08 15:57:42,618 | 21_protein_coding_only_check | INFO | [protein-coding-only] outer fold 2/5: AUC=0.867 PR-AUC=0.912 best_params={'clf__C': 1, 'clf__penalty': 'l1', 'select__k': 50}
+2026-10-08 15:57:52,555 | 21_protein_coding_only_check | INFO | [protein-coding-only] outer fold 3/5: AUC=0.875 PR-AUC=0.901 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-10-08 15:58:02,562 | 21_protein_coding_only_check | INFO | [protein-coding-only] outer fold 4/5: AUC=0.917 PR-AUC=0.926 best_params={'clf__C': 0.1, 'clf__penalty': 'l2', 'select__k': 200}
+2026-10-08 15:58:12,672 | 21_protein_coding_only_check | INFO | [protein-coding-only] outer fold 5/5: AUC=0.825 PR-AUC=0.892 best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 200}
+2026-10-08 15:58:20,525 | 21_protein_coding_only_check | INFO | Paired bootstrap AUC difference (protein-coding-only minus full-genome), aligned by sample_id (n=189) = 0.024 (95% CI -0.012 to 0.065)
+2026-10-08 15:58:20,525 | 21_protein_coding_only_check | WARNING | Protein-coding-only whole-cohort nested-CV AUC = 0.845 [0.786, 0.900] vs. full-genome whole-cohort logreg AUC = 0.821. Difference = 0.024.
+2026-10-08 15:58:20,525 | 21_protein_coding_only_check | INFO | Wrote results/performance_summary_protein_coding_only.csv
+2026-10-08 16:00:45,592 | 22_logreg_shap_compare | INFO | Refit logreg on full dataset for interpretation. best_params={'clf__C': 0.1, 'clf__penalty': 'l1', 'select__k': 50}, full-data CV AUC=0.853 (interpretation-only number, not a held-out estimate)
+2026-10-08 16:00:45,665 | 22_logreg_shap_compare | INFO | Wrote results/shap_feature_importance_logreg.csv (50 genes)
+2026-10-08 16:00:45,677 | 22_logreg_shap_compare | INFO | Top-10 overlap between XGBoost and logistic-regression SHAP rankings: 8 / 10 genes (ANOS1, FAM160A1, KIF4A, MIR1281, OR2L1P, RPA2, TMEM170B, TTC3P1)
+2026-10-08 16:00:45,679 | 22_logreg_shap_compare | INFO | Top-20 overlap between XGBoost and logistic-regression SHAP rankings: 12 / 20 genes (ANOS1, CACNA2D1, FAM160A1, HRNR, IFNGR2, KIF4A, MIR1281, OAF, OR2L1P, RPA2, TMEM170B, TTC3P1)
+2026-10-08 16:00:45,680 | 22_logreg_shap_compare | INFO | Top-30 overlap between XGBoost and logistic-regression SHAP rankings: 19 / 30 genes (ANOS1, CACNA2D1, CCDC85B, COL6A6, FAM160A1, FRMPD4, HRNR, IFNGR2, KIF4A, LINC00167, MIR1281, OAF, OR2L1P, PWWP2B, RPA2, SAGE4P, TMED9, TMEM170B, TTC3P1)
+2026-10-08 16:00:45,682 | 22_logreg_shap_compare | INFO | Top-50 overlap between XGBoost and logistic-regression SHAP rankings: 50 / 50 genes (ANOS1, ANP32B, BRI3, C19orf38, CACNA2D1, CCDC85B, CD68, CLTB, CMYA5, COL6A6, DEDD2, DNAJC27, FAM160A1, FRMPD4, HRNR, IFNGR2, IL1RAPL1, KIF4A, LINC00167, LIPK, LMO2, MIR1281, MOB2, MRC1, MRFAP1, MUC19, MXRA5, NAPSB, NINJ1, OAF, OAZ1, OR2L1P, PPP5D1, PRKAA2, PWWP2B, RNF130, RPA2, SAGE4P, SLC26A5, SNCAIP, TACC2, TGFBI, TKT, TMED9, TMEM170B, TRIM11, TRIR, TTC3P1, TYROBP, ZNF385A)
+2026-10-08 16:00:45,692 | 22_logreg_shap_compare | INFO | Wrote results/shap_model_overlap.csv
+2026-10-08 16:33:37,578 | 02_qc_preprocess | INFO | Loaded expression matrix: 189 samples x 21915 genes
+2026-10-08 16:33:37,579 | 02_qc_preprocess | INFO | Sample counts: FM=96, Control=93 (paper: 96 FM / 93 Control)
+2026-10-08 16:33:37,579 | 02_qc_preprocess | INFO | No duplicate sample IDs.
+2026-10-08 16:33:37,588 | 02_qc_preprocess | INFO | Missing values in expression matrix: 0
+2026-10-08 16:33:37,607 | 02_qc_preprocess | INFO | Dropped 0 / 21915 genes with FPKM==0 in >90% of samples (21915 genes remain).
+2026-10-08 16:33:37,647 | 02_qc_preprocess | INFO | Applied log2(FPKM + 1) transform.
+2026-10-08 16:33:43,170 | 02_qc_preprocess | INFO | Wrote expression_log2_filtered.csv (189 x 21915) and sample_metadata_qc.csv
+2026-10-08 16:33:43,605 | 02_qc_preprocess | INFO | Saved figures/pca_qc.png
+2026-11-05 14:22:12,010 | 05_shap_explain | INFO | Best model family by nested-CV AUC: xgboost (see performance_summary.csv for the locked-in CV estimate; this script's own internal CV score below is NOT that estimate and must not be reported as one).
+2026-11-05 14:22:33,350 | 05_shap_explain | INFO | Refit xgboost on full dataset for interpretation. best_params={'clf__learning_rate': 0.1, 'clf__max_depth': 3, 'clf__n_estimators': 100, 'select__k': 50}, full-data CV AUC=0.841 (interpretation-only number, not a held-out estimate)
+2026-11-05 14:22:33,362 | 05_shap_explain | INFO | Computing SHAP values for 50 selected features...
+2026-11-05 14:22:33,471 | 05_shap_explain | INFO | Wrote results/shap_feature_importance.csv (50 genes, model=xgboost)
+2026-11-05 14:22:34,207 | 05_shap_explain | INFO | Wrote figures/shap_summary.png
+2026-11-05 14:22:34,697 | 05_shap_explain | INFO | Wrote figures/shap_dependence_top_genes.png (6 lettered panels)
+2026-11-05 14:26:42,405 | 05_shap_explain | INFO | Best model family by nested-CV AUC: xgboost (see performance_summary.csv for the locked-in CV estimate; this script's own internal CV score below is NOT that estimate and must not be reported as one).
+2026-11-05 14:27:03,255 | 05_shap_explain | INFO | Refit xgboost on full dataset for interpretation. best_params={'clf__learning_rate': 0.1, 'clf__max_depth': 3, 'clf__n_estimators': 100, 'select__k': 50}, full-data CV AUC=0.841 (interpretation-only number, not a held-out estimate)
+2026-11-05 14:27:03,265 | 05_shap_explain | INFO | Computing SHAP values for 50 selected features...
+2026-11-05 14:27:03,336 | 05_shap_explain | INFO | Wrote results/shap_feature_importance.csv (50 genes, model=xgboost)
+2026-11-05 14:27:03,996 | 05_shap_explain | INFO | Wrote figures/shap_summary.png
+2026-11-05 14:27:04,078 | 05_shap_explain | INFO | Wrote figures/shap_dependence_MIR1281.png
+2026-11-05 14:27:04,157 | 05_shap_explain | INFO | Wrote figures/shap_dependence_RPA2.png
+2026-11-05 14:27:04,233 | 05_shap_explain | INFO | Wrote figures/shap_dependence_FAM160A1.png
+2026-11-05 14:27:04,321 | 05_shap_explain | INFO | Wrote figures/shap_dependence_TTC3P1.png
+2026-11-05 14:27:04,405 | 05_shap_explain | INFO | Wrote figures/shap_dependence_TMEM170B.png
+2026-11-05 14:27:04,504 | 05_shap_explain | INFO | Wrote figures/shap_dependence_KIF4A.png
+2026-11-05 14:27:19,538 | 05_shap_explain | INFO | Best model family by nested-CV AUC: xgboost (see performance_summary.csv for the locked-in CV estimate; this script's own internal CV score below is NOT that estimate and must not be reported as one).
+2026-11-05 14:27:39,053 | 05_shap_explain | INFO | Refit xgboost on full dataset for interpretation. best_params={'clf__learning_rate': 0.1, 'clf__max_depth': 3, 'clf__n_estimators': 100, 'select__k': 50}, full-data CV AUC=0.841 (interpretation-only number, not a held-out estimate)
+2026-11-05 14:27:39,063 | 05_shap_explain | INFO | Computing SHAP values for 50 selected features...
+2026-11-05 14:27:39,133 | 05_shap_explain | INFO | Wrote results/shap_feature_importance.csv (50 genes, model=xgboost)
+2026-11-05 14:27:39,774 | 05_shap_explain | INFO | Wrote figures/shap_summary.png
+2026-11-05 14:27:39,854 | 05_shap_explain | INFO | Wrote figures/shap_dependence_MIR1281.png
+2026-11-05 14:27:39,930 | 05_shap_explain | INFO | Wrote figures/shap_dependence_RPA2.png
+2026-11-05 14:27:40,005 | 05_shap_explain | INFO | Wrote figures/shap_dependence_FAM160A1.png
+2026-11-05 14:27:40,094 | 05_shap_explain | INFO | Wrote figures/shap_dependence_TTC3P1.png
+2026-11-05 14:27:40,184 | 05_shap_explain | INFO | Wrote figures/shap_dependence_TMEM170B.png
+2026-11-05 14:27:40,276 | 05_shap_explain | INFO | Wrote figures/shap_dependence_KIF4A.png
+2026-11-10 22:43:07,962 | 02_qc_preprocess | INFO | Loaded expression matrix: 189 samples x 21915 genes
+2026-11-10 22:43:07,962 | 02_qc_preprocess | INFO | Sample counts: FM=96, Control=93 (paper: 96 FM / 93 Control)
+2026-11-10 22:43:07,963 | 02_qc_preprocess | INFO | No duplicate sample IDs.
+2026-11-10 22:43:07,971 | 02_qc_preprocess | INFO | Missing values in expression matrix: 0
+2026-11-10 22:43:07,999 | 02_qc_preprocess | INFO | Dropped 0 / 21915 genes with FPKM==0 in >90% of samples (21915 genes remain).
+2026-11-10 22:43:08,053 | 02_qc_preprocess | INFO | Applied log2(FPKM + 1) transform.
+2026-11-10 22:43:16,035 | 02_qc_preprocess | INFO | Wrote expression_log2_filtered.csv (189 x 21915) and sample_metadata_qc.csv
+2026-11-10 22:43:17,325 | 02_qc_preprocess | INFO | Saved figures/pca_qc.png
+2026-11-10 22:43:27,106 | 04_permutation_test | INFO | Computing real (non-permuted) nested-CV AUC with the reduced permutation-test grid (this differs slightly from the full-grid AUC in performance_summary.csv; used only as the reference point for the null comparison).
+2026-11-10 22:43:40,429 | 04_permutation_test | INFO | Reduced-grid real AUC = 0.8272
+2026-11-10 22:43:49,101 | 04_permutation_test | INFO | Permutation 1/100: AUC=0.4901 (8.7s)
+2026-11-10 22:43:57,361 | 04_permutation_test | INFO | Permutation 2/100: AUC=0.4908 (8.3s)
+2026-11-10 22:44:09,794 | 04_permutation_test | INFO | Permutation 3/100: AUC=0.3976 (12.4s)
+2026-11-10 22:44:23,854 | 04_permutation_test | INFO | Permutation 4/100: AUC=0.3805 (14.1s)
+2026-11-10 22:44:37,921 | 04_permutation_test | INFO | Permutation 5/100: AUC=0.5608 (14.1s)
+2026-11-10 22:44:51,424 | 04_permutation_test | INFO | Permutation 6/100: AUC=0.4887 (13.5s)
+2026-11-10 22:45:05,140 | 04_permutation_test | INFO | Permutation 7/100: AUC=0.4861 (13.7s)
+2026-11-10 22:45:19,579 | 04_permutation_test | INFO | Permutation 8/100: AUC=0.5529 (14.4s)
+2026-11-10 22:45:33,359 | 04_permutation_test | INFO | Permutation 9/100: AUC=0.5379 (13.8s)
+2026-11-10 22:45:46,368 | 17_pipeline_diagram | INFO | Wrote figures/pipeline_diagram.png
+2026-11-10 22:45:47,313 | 04_permutation_test | INFO | Permutation 10/100: AUC=0.5498 (14.0s)
+2026-11-10 22:46:01,299 | 04_permutation_test | INFO | Permutation 11/100: AUC=0.4592 (14.0s)
+2026-11-10 22:46:02,633 | 10_calibration_check | INFO | logreg: Brier=0.1713 (base-rate-only baseline Brier=0.2499, lower is better, n=189, base_rate_FM=0.508)
+2026-11-10 22:46:02,659 | 10_calibration_check | INFO | xgboost: Brier=0.1935 (base-rate-only baseline Brier=0.2499, lower is better, n=189, base_rate_FM=0.508)
+2026-11-10 22:46:05,990 | 10_calibration_check | INFO | Wrote results/calibration_summary.csv and figures/calibration_curves.png
+2026-11-10 22:46:15,486 | 04_permutation_test | INFO | Permutation 12/100: AUC=0.4285 (14.2s)
+2026-11-10 22:46:28,964 | 04_permutation_test | INFO | Permutation 13/100: AUC=0.5500 (13.5s)
+2026-11-10 22:46:38,256 | 05_shap_explain | INFO | Best model family by nested-CV AUC: xgboost (see performance_summary.csv for the locked-in CV estimate; this script's own internal CV score below is NOT that estimate and must not be reported as one).
+2026-11-10 22:46:43,069 | 04_permutation_test | INFO | Permutation 14/100: AUC=0.5538 (14.1s)
+2026-11-10 22:47:05,501 | 04_permutation_test | INFO | Permutation 15/100: AUC=0.3697 (22.4s)
+2026-11-10 22:47:21,418 | 05_shap_explain | INFO | Refit xgboost on full dataset for interpretation. best_params={'clf__learning_rate': 0.1, 'clf__max_depth': 3, 'clf__n_estimators': 100, 'select__k': 50}, full-data CV AUC=0.841 (interpretation-only number, not a held-out estimate)
+2026-11-10 22:47:21,450 | 05_shap_explain | INFO | Computing SHAP values for 50 selected features...
+2026-11-10 22:47:22,030 | 05_shap_explain | INFO | Wrote results/shap_feature_importance.csv (50 genes, model=xgboost)
+2026-11-10 22:47:26,439 | 04_permutation_test | INFO | Permutation 16/100: AUC=0.5334 (20.9s)
+2026-11-10 22:47:30,344 | 05_shap_explain | INFO | Wrote figures/shap_summary.png
+2026-11-10 22:47:31,801 | 05_shap_explain | INFO | Wrote figures/shap_dependence_MIR1281.png
+2026-11-10 22:47:33,418 | 05_shap_explain | INFO | Wrote figures/shap_dependence_RPA2.png
+2026-11-10 22:47:34,884 | 05_shap_explain | INFO | Wrote figures/shap_dependence_FAM160A1.png
+2026-11-10 22:47:36,459 | 05_shap_explain | INFO | Wrote figures/shap_dependence_TTC3P1.png
+2026-11-10 22:47:37,660 | 05_shap_explain | INFO | Wrote figures/shap_dependence_TMEM170B.png
+2026-11-10 22:47:39,342 | 05_shap_explain | INFO | Wrote figures/shap_dependence_KIF4A.png
+2026-11-10 22:47:40,545 | 04_permutation_test | INFO | Permutation 17/100: AUC=0.4233 (14.1s)
+2026-11-10 22:47:54,461 | 04_permutation_test | INFO | Permutation 18/100: AUC=0.5360 (13.9s)
+2026-11-10 22:48:08,266 | 04_permutation_test | INFO | Permutation 19/100: AUC=0.5385 (13.8s)
+2026-11-10 22:48:21,903 | 18_gsea_pathway_check | INFO | Preranked gene list: 21374 unique gene symbols (from 21915 expression columns; 541 rows removed in total: missing Hugo symbol, or duplicate symbol collapsed to the most extreme row)
+2026-11-10 22:48:23,720 | 04_permutation_test | INFO | Permutation 20/100: AUC=0.5692 (15.5s)
+2026-11-10 22:48:26,837 | 18_gsea_pathway_check | INFO | Wrote results/gsea_pathway_results.csv
+2026-11-10 22:48:26,839 | 18_gsea_pathway_check | INFO | GSEA FM2_CLEAR_lysosomal: NES=-2.745717072764452 ES=-0.8561479784541541 p=0.0 FDR q=0.0 leading_edge=20/23
+2026-11-10 22:48:26,839 | 18_gsea_pathway_check | INFO | GSEA FM3_FM4_interferon_JAKSTAT_death_receptor: NES=-2.12375256595502 ES=-0.6208450558734757 p=0.0 FDR q=0.0 leading_edge=15/30
+2026-11-10 22:48:26,840 | 18_gsea_pathway_check | INFO | GSEA FM1_ECM_RhoGDI_collagen_GP6: NES=-1.281315327592466 ES=-0.36794675445601205 p=0.1044776119402985 FDR q=0.11996497373029773 leading_edge=14/35
+2026-11-10 22:48:35,321 | 18_gsea_pathway_check | INFO | Wrote figures/gsea_fm2_fm3.png (composite FM2/FM3 enrichment plot)
+2026-11-10 22:48:35,325 | 18_gsea_pathway_check | INFO | At least one pathway reaches conventional GSEA significance (FDR q<0.25).
+2026-11-10 22:48:39,207 | 14_confound_permutation_nulls | INFO | Female-only reduced-grid real AUC = 0.7424 (n=132)
+2026-11-10 22:48:40,131 | 04_permutation_test | INFO | Permutation 21/100: AUC=0.5159 (16.4s)
+2026-11-10 22:48:50,696 | 14_confound_permutation_nulls | INFO | [female-only] permutation 1/100: AUC=0.5532 (11.5s)
+2026-11-10 22:48:55,564 | 04_permutation_test | INFO | Permutation 22/100: AUC=0.4143 (15.4s)
+2026-11-10 22:49:01,710 | 14_confound_permutation_nulls | INFO | [female-only] permutation 2/100: AUC=0.5562 (11.0s)
+2026-11-10 22:49:11,607 | 04_permutation_test | INFO | Permutation 23/100: AUC=0.4900 (16.0s)
+2026-11-10 22:49:13,264 | 14_confound_permutation_nulls | INFO | [female-only] permutation 3/100: AUC=0.4589 (11.6s)
+2026-11-10 22:49:24,267 | 14_confound_permutation_nulls | INFO | [female-only] permutation 4/100: AUC=0.5082 (11.0s)
+2026-11-10 22:49:27,607 | 04_permutation_test | INFO | Permutation 24/100: AUC=0.5373 (16.0s)
+2026-11-10 22:49:36,707 | 14_confound_permutation_nulls | INFO | [female-only] permutation 5/100: AUC=0.5208 (12.4s)
+2026-11-10 22:49:44,395 | 04_permutation_test | INFO | Permutation 25/100: AUC=0.4089 (16.8s)
+2026-11-10 22:49:47,752 | 14_confound_permutation_nulls | INFO | [female-only] permutation 6/100: AUC=0.5176 (11.0s)
+2026-11-10 22:49:52,185 | 18_gsea_pathway_check | INFO | Preranked gene list: 21374 unique gene symbols (from 21915 expression columns; 541 rows removed in total: missing Hugo symbol, or duplicate symbol collapsed to the most extreme row)
+2026-11-10 22:49:57,059 | 18_gsea_pathway_check | INFO | Wrote results/gsea_pathway_results.csv
+2026-11-10 22:49:57,061 | 18_gsea_pathway_check | INFO | GSEA FM2_CLEAR_lysosomal: NES=-2.745717072764452 ES=-0.8561479784541541 p=0.0 FDR q=0.0 leading_edge=20/23
+2026-11-10 22:49:57,062 | 18_gsea_pathway_check | INFO | GSEA FM3_FM4_interferon_JAKSTAT_death_receptor: NES=-2.12375256595502 ES=-0.6208450558734757 p=0.0 FDR q=0.0 leading_edge=15/30
+2026-11-10 22:49:57,062 | 18_gsea_pathway_check | INFO | GSEA FM1_ECM_RhoGDI_collagen_GP6: NES=-1.281315327592466 ES=-0.36794675445601205 p=0.1044776119402985 FDR q=0.11996497373029773 leading_edge=14/35
+2026-11-10 22:49:59,955 | 14_confound_permutation_nulls | INFO | [female-only] permutation 7/100: AUC=0.4559 (12.2s)
+2026-11-10 22:50:00,637 | 04_permutation_test | INFO | Permutation 26/100: AUC=0.4988 (16.2s)
+2026-11-10 22:50:11,026 | 14_confound_permutation_nulls | INFO | [female-only] permutation 8/100: AUC=0.5127 (11.1s)
+2026-11-10 22:50:12,004 | 18_gsea_pathway_check | INFO | Wrote figures/gsea_fm2_fm3.png (composite FM2/FM3 enrichment plot)
+2026-11-10 22:50:12,006 | 18_gsea_pathway_check | INFO | At least one pathway reaches conventional GSEA significance (FDR q<0.25).
+2026-11-10 22:50:17,177 | 04_permutation_test | INFO | Permutation 27/100: AUC=0.6223 (16.5s)
+2026-11-10 22:50:23,104 | 14_confound_permutation_nulls | INFO | [female-only] permutation 9/100: AUC=0.4203 (12.1s)
+2026-11-10 22:50:34,017 | 04_permutation_test | INFO | Permutation 28/100: AUC=0.5153 (16.8s)
+2026-11-10 22:50:34,245 | 14_confound_permutation_nulls | INFO | [female-only] permutation 10/100: AUC=0.6264 (11.1s)
+2026-11-10 22:50:45,875 | 14_confound_permutation_nulls | INFO | [female-only] permutation 11/100: AUC=0.5484 (11.6s)
+2026-11-10 22:50:50,483 | 04_permutation_test | INFO | Permutation 29/100: AUC=0.6169 (16.5s)
+2026-11-10 22:50:56,701 | 14_confound_permutation_nulls | INFO | [female-only] permutation 12/100: AUC=0.4428 (10.8s)
+2026-11-10 22:51:06,469 | 04_permutation_test | INFO | Permutation 30/100: AUC=0.4234 (16.0s)
+2026-11-10 22:51:07,852 | 14_confound_permutation_nulls | INFO | [female-only] permutation 13/100: AUC=0.6205 (11.1s)
+2026-11-10 22:51:18,275 | 14_confound_permutation_nulls | INFO | [female-only] permutation 14/100: AUC=0.5224 (10.4s)
+2026-11-10 22:51:21,765 | 04_permutation_test | INFO | Permutation 31/100: AUC=0.3989 (15.3s)
+2026-11-10 22:51:30,293 | 14_confound_permutation_nulls | INFO | [female-only] permutation 15/100: AUC=0.5476 (12.0s)
+2026-11-10 22:51:38,233 | 04_permutation_test | INFO | Permutation 32/100: AUC=0.5305 (16.5s)
+2026-11-10 22:51:41,788 | 14_confound_permutation_nulls | INFO | [female-only] permutation 16/100: AUC=0.5599 (11.5s)
+2026-11-10 22:51:54,151 | 14_confound_permutation_nulls | INFO | [female-only] permutation 17/100: AUC=0.5342 (12.4s)
+2026-11-10 22:51:54,884 | 04_permutation_test | INFO | Permutation 33/100: AUC=0.5130 (16.6s)
+2026-11-10 22:52:05,593 | 14_confound_permutation_nulls | INFO | [female-only] permutation 18/100: AUC=0.5926 (11.4s)
+2026-11-10 22:52:11,246 | 04_permutation_test | INFO | Permutation 34/100: AUC=0.4992 (16.4s)
+2026-11-10 22:52:17,357 | 14_confound_permutation_nulls | INFO | [female-only] permutation 19/100: AUC=0.6106 (11.8s)
+2026-11-10 22:52:28,131 | 04_permutation_test | INFO | Permutation 35/100: AUC=0.4577 (16.9s)
+2026-11-10 22:52:30,069 | 14_confound_permutation_nulls | INFO | [female-only] permutation 20/100: AUC=0.4698 (12.7s)
+2026-11-10 22:52:41,319 | 14_confound_permutation_nulls | INFO | [female-only] permutation 21/100: AUC=0.5907 (11.2s)
+2026-11-10 22:52:44,811 | 04_permutation_test | INFO | Permutation 36/100: AUC=0.5175 (16.7s)
+2026-11-10 22:52:52,786 | 14_confound_permutation_nulls | INFO | [female-only] permutation 22/100: AUC=0.3994 (11.5s)
+2026-11-10 22:53:00,477 | 04_permutation_test | INFO | Permutation 37/100: AUC=0.4775 (15.7s)
+2026-11-10 22:53:03,760 | 14_confound_permutation_nulls | INFO | [female-only] permutation 23/100: AUC=0.6559 (11.0s)
+2026-11-10 22:53:15,989 | 14_confound_permutation_nulls | INFO | [female-only] permutation 24/100: AUC=0.4452 (12.2s)
+2026-11-10 22:53:16,741 | 04_permutation_test | INFO | Permutation 38/100: AUC=0.6063 (16.3s)
+2026-11-10 22:53:27,566 | 14_confound_permutation_nulls | INFO | [female-only] permutation 25/100: AUC=0.5596 (11.6s)
+2026-11-10 22:53:34,200 | 04_permutation_test | INFO | Permutation 39/100: AUC=0.5510 (17.5s)
+2026-11-10 22:53:39,901 | 14_confound_permutation_nulls | INFO | [female-only] permutation 26/100: AUC=0.5484 (12.3s)
+2026-11-10 22:53:51,117 | 04_permutation_test | INFO | Permutation 40/100: AUC=0.4460 (16.9s)
+2026-11-10 22:53:51,515 | 14_confound_permutation_nulls | INFO | [female-only] permutation 27/100: AUC=0.5149 (11.6s)
+2026-11-10 22:54:03,911 | 14_confound_permutation_nulls | INFO | [female-only] permutation 28/100: AUC=0.4187 (12.4s)
+2026-11-10 22:54:08,163 | 04_permutation_test | INFO | Permutation 41/100: AUC=0.5273 (17.0s)
+2026-11-10 22:54:15,333 | 14_confound_permutation_nulls | INFO | [female-only] permutation 29/100: AUC=0.5537 (11.4s)
+2026-11-10 22:54:24,920 | 04_permutation_test | INFO | Permutation 42/100: AUC=0.5402 (16.8s)
+2026-11-10 22:54:27,502 | 14_confound_permutation_nulls | INFO | [female-only] permutation 30/100: AUC=0.4028 (12.2s)
+2026-11-10 22:54:39,365 | 14_confound_permutation_nulls | INFO | [female-only] permutation 31/100: AUC=0.3645 (11.9s)
+2026-11-10 22:54:41,342 | 04_permutation_test | INFO | Permutation 43/100: AUC=0.4154 (16.4s)
+2026-11-10 22:54:51,376 | 14_confound_permutation_nulls | INFO | [female-only] permutation 32/100: AUC=0.5599 (12.0s)
+2026-11-10 22:54:58,039 | 04_permutation_test | INFO | Permutation 44/100: AUC=0.4222 (16.7s)
+2026-11-10 22:55:03,425 | 14_confound_permutation_nulls | INFO | [female-only] permutation 33/100: AUC=0.5591 (12.0s)
+2026-11-10 22:55:14,343 | 04_permutation_test | INFO | Permutation 45/100: AUC=0.4932 (16.3s)
+2026-11-10 22:55:14,398 | 14_confound_permutation_nulls | INFO | [female-only] permutation 34/100: AUC=0.6202 (11.0s)
+2026-11-10 22:55:26,127 | 14_confound_permutation_nulls | INFO | [female-only] permutation 35/100: AUC=0.4570 (11.7s)
+2026-11-10 22:55:30,780 | 04_permutation_test | INFO | Permutation 46/100: AUC=0.4627 (16.4s)
+2026-11-10 22:55:37,143 | 14_confound_permutation_nulls | INFO | [female-only] permutation 36/100: AUC=0.5725 (11.0s)
+2026-11-10 22:55:47,109 | 04_permutation_test | INFO | Permutation 47/100: AUC=0.4980 (16.3s)
+2026-11-10 22:55:49,023 | 14_confound_permutation_nulls | INFO | [female-only] permutation 37/100: AUC=0.5074 (11.9s)
+2026-11-10 22:56:00,416 | 14_confound_permutation_nulls | INFO | [female-only] permutation 38/100: AUC=0.4752 (11.4s)
+2026-11-10 22:56:03,945 | 04_permutation_test | INFO | Permutation 48/100: AUC=0.4066 (16.8s)
+2026-11-10 22:56:11,793 | 14_confound_permutation_nulls | INFO | [female-only] permutation 39/100: AUC=0.3744 (11.4s)
+2026-11-10 22:56:20,416 | 04_permutation_test | INFO | Permutation 49/100: AUC=0.5540 (16.5s)
+2026-11-10 22:56:23,378 | 14_confound_permutation_nulls | INFO | [female-only] permutation 40/100: AUC=0.4203 (11.6s)
+2026-11-10 22:56:34,990 | 14_confound_permutation_nulls | INFO | [female-only] permutation 41/100: AUC=0.5044 (11.6s)
+2026-11-10 22:56:38,035 | 04_permutation_test | INFO | Permutation 50/100: AUC=0.5365 (17.6s)
+2026-11-10 22:56:47,634 | 14_confound_permutation_nulls | INFO | [female-only] permutation 42/100: AUC=0.4972 (12.6s)
+2026-11-10 22:56:55,663 | 04_permutation_test | INFO | Permutation 51/100: AUC=0.5115 (17.6s)
+2026-11-10 22:56:59,018 | 14_confound_permutation_nulls | INFO | [female-only] permutation 43/100: AUC=0.5964 (11.4s)
+2026-11-10 22:57:11,448 | 14_confound_permutation_nulls | INFO | [female-only] permutation 44/100: AUC=0.5626 (12.4s)
+2026-11-10 22:57:12,828 | 04_permutation_test | INFO | Permutation 52/100: AUC=0.5433 (17.2s)
+2026-11-10 22:57:22,967 | 14_confound_permutation_nulls | INFO | [female-only] permutation 45/100: AUC=0.4189 (11.5s)
+2026-11-10 22:57:29,923 | 04_permutation_test | INFO | Permutation 53/100: AUC=0.5584 (17.1s)
+2026-11-10 22:57:35,474 | 14_confound_permutation_nulls | INFO | [female-only] permutation 46/100: AUC=0.4961 (12.5s)
+2026-11-10 22:57:46,493 | 04_permutation_test | INFO | Permutation 54/100: AUC=0.4437 (16.6s)
+2026-11-10 22:57:46,779 | 14_confound_permutation_nulls | INFO | [female-only] permutation 47/100: AUC=0.5591 (11.3s)
+2026-11-10 22:57:58,310 | 14_confound_permutation_nulls | INFO | [female-only] permutation 48/100: AUC=0.4814 (11.5s)
+2026-11-10 22:58:02,939 | 04_permutation_test | INFO | Permutation 55/100: AUC=0.5086 (16.4s)
+2026-11-10 22:58:09,402 | 14_confound_permutation_nulls | INFO | [female-only] permutation 49/100: AUC=0.4567 (11.1s)
+2026-11-10 22:58:19,154 | 04_permutation_test | INFO | Permutation 56/100: AUC=0.5501 (16.2s)
+2026-11-10 22:58:21,041 | 14_confound_permutation_nulls | INFO | [female-only] permutation 50/100: AUC=0.3940 (11.6s)
+2026-11-10 22:58:30,007 | 14_confound_permutation_nulls | INFO | [female-only] permutation 51/100: AUC=0.4731 (9.0s)
+2026-11-10 22:58:31,871 | 04_permutation_test | INFO | Permutation 57/100: AUC=0.5551 (12.7s)
+2026-11-10 22:58:39,306 | 14_confound_permutation_nulls | INFO | [female-only] permutation 52/100: AUC=0.4846 (9.3s)
+2026-11-10 22:58:44,557 | 04_permutation_test | INFO | Permutation 58/100: AUC=0.5486 (12.7s)
+2026-11-10 22:58:48,442 | 14_confound_permutation_nulls | INFO | [female-only] permutation 53/100: AUC=0.5449 (9.1s)
+2026-11-10 22:59:00,340 | 14_confound_permutation_nulls | INFO | [female-only] permutation 54/100: AUC=0.5618 (11.9s)
+2026-11-10 22:59:00,478 | 04_permutation_test | INFO | Permutation 59/100: AUC=0.5073 (15.9s)
+2026-11-10 22:59:12,791 | 14_confound_permutation_nulls | INFO | [female-only] permutation 55/100: AUC=0.3431 (12.5s)
+2026-11-10 22:59:18,378 | 04_permutation_test | INFO | Permutation 60/100: AUC=0.5500 (17.9s)
+2026-11-10 22:59:24,566 | 14_confound_permutation_nulls | INFO | [female-only] permutation 56/100: AUC=0.6017 (11.8s)

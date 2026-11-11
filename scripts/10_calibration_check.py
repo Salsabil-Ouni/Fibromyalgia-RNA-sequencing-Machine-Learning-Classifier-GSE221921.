@@ -58,7 +58,7 @@ def main():
                     "n=%d, base_rate_FM=%.3f)", model_name, brier, brier_baseline, len(y_true), base_rate)
 
     fig.tight_layout()
-    fig.savefig(FIGURES / "calibration_curves.png", dpi=150)
+    fig.savefig(FIGURES / "calibration_curves.png", dpi=600)
     plt.close(fig)
 
     pd.DataFrame(rows).to_csv(RESULTS / "calibration_summary.csv", index=False)

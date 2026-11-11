@@ -134,7 +134,7 @@ def main():
     ax.set_title(f"Feature-selection stability across {n_total_folds} outer folds ({N_REPEATS} repeats x {N_OUTER}-fold CV)")
     ax.legend()
     fig.tight_layout()
-    fig.savefig(FIGURES / "feature_stability.png", dpi=150)
+    fig.savefig(FIGURES / "feature_stability.png", dpi=600)
     plt.close(fig)
     logger.info("Wrote results/feature_selection_stability.csv, results/feature_stability_summary.csv, "
                 "figures/feature_stability.png")

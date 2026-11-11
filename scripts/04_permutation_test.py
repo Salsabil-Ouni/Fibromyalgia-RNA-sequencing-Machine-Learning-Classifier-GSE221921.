@@ -111,7 +111,7 @@ def main():
     ax.set_title(f"Real model vs. permutation-label null\nempirical p = {p_value:.4f}")
     ax.legend()
     fig.tight_layout()
-    fig.savefig(FIGURES / "permutation_null_distribution.png", dpi=150)
+    fig.savefig(FIGURES / "permutation_null_distribution.png", dpi=600)
     plt.close(fig)
     logger.info("Wrote results/permutation_null_distribution.csv and figures/permutation_null_distribution.png")
 

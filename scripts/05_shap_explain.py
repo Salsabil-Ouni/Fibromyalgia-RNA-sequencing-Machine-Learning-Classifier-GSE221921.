@@ -114,33 +114,30 @@ def main():
     order = np.argsort(mean_abs_shap)[::-1][:top_n]
     symbols = importance_df["Hugo_Gene_Symbol"].fillna(importance_df["gene_ensembl_id"]).to_numpy()
 
-    plt.figure(figsize=(9, 10))
+    plt.figure(figsize=(9, 12))
     shap.summary_plot(
         shap_values[:, order], X_selected_scaled[:, order],
-        feature_names=symbols[:top_n], show=False, plot_size=None,
+        feature_names=symbols[:top_n], show=False, plot_size=None, max_display=top_n,
     )
     plt.title(f"SHAP summary — top {top_n} genes ({best_model}, refit on full dataset)")
     plt.tight_layout()
-    plt.savefig(FIGURES / "shap_summary.png", dpi=150)
+    plt.savefig(FIGURES / "shap_summary.png", dpi=600)
     plt.close()
     logger.info("Wrote figures/shap_summary.png")
 
-    # --- Dependence plots for top 3-5 genes ---
-    top_k_dep = min(5, len(selected_genes))
-    fig, axes = plt.subplots(1, top_k_dep, figsize=(4.5 * top_k_dep, 4))
-    if top_k_dep == 1:
-        axes = [axes]
+    # --- Dependence plots for top 6 genes, each saved as its own independent figure file ---
+    top_k_dep = min(6, len(selected_genes))
     for i in range(top_k_dep):
         idx = order[i]
-        axes[i].scatter(X_selected_scaled[:, idx], shap_values[:, idx], c=y, cmap="coolwarm", s=18, alpha=0.8)
-        axes[i].set_xlabel(f"{symbols[i]} (scaled log2 FPKM)")
-        axes[i].set_ylabel("SHAP value")
-        axes[i].set_title(symbols[i])
-    fig.suptitle("SHAP dependence — top genes (color = FM [red] / Control [blue])")
-    fig.tight_layout()
-    fig.savefig(FIGURES / "shap_dependence_top_genes.png", dpi=150)
-    plt.close(fig)
-    logger.info("Wrote figures/shap_dependence_top_genes.png")
+        fig, ax = plt.subplots(figsize=(5.5, 4.3))
+        ax.scatter(X_selected_scaled[:, idx], shap_values[:, idx], c=y, cmap="coolwarm", s=18, alpha=0.8)
+        ax.set_xlabel(f"{symbols[i]} (scaled log2 FPKM)")
+        ax.set_ylabel("SHAP value")
+        ax.set_title(f"SHAP dependence — {symbols[i]}")
+        fig.tight_layout()
+        fig.savefig(FIGURES / f"shap_dependence_{symbols[i]}.png", dpi=600)
+        plt.close(fig)
+        logger.info("Wrote figures/shap_dependence_%s.png", symbols[i])
 
 
 if __name__ == "__main__":

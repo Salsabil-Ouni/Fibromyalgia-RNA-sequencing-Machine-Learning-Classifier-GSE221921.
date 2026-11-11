@@ -108,7 +108,7 @@ def main():
     ax.set_title(f"Learning curve (logreg, {N_REPEATS} repeats x {N_OUTER}-fold CV per point)")
     ax.legend()
     fig.tight_layout()
-    fig.savefig(FIGURES / "learning_curve.png", dpi=150)
+    fig.savefig(FIGURES / "learning_curve.png", dpi=600)
     plt.close(fig)
     logger.info("Wrote figures/learning_curve.png")
 

@@ -5,7 +5,8 @@ Step 2 — QC and preprocessing.
 - check missing values / duplicate sample IDs
 - drop genes with (near-)zero expression across >90% of samples
 - log2(FPKM + 1) transform
-- PCA plot colored by FM/control and by sex (the only technical covariate available)
+- PCA plot colored by FM/control and by sex (a biological/demographic covariate, not a
+  technical one; see Section 2.2 of the manuscript)
 
 Writes data/processed/expression_log2_filtered.csv (samples x genes, QC'd + log-transformed)
 and figures/pca_qc.png. This file is INPUT to modeling but all further feature selection /
@@ -87,9 +88,9 @@ def main():
     axes[0].set_title(f"PCA colored by FM/Control\n(PC1 {pca.explained_variance_ratio_[0]*100:.1f}%, "
                        f"PC2 {pca.explained_variance_ratio_[1]*100:.1f}%)")
     sns.scatterplot(data=pca_df, x="PC1", y="PC2", hue="sex", ax=axes[1], palette="Set2", s=40)
-    axes[1].set_title("PCA colored by sex (only technical covariate available)")
+    axes[1].set_title("PCA colored by sex")
     fig.tight_layout()
-    fig.savefig(FIGURES / "pca_qc.png", dpi=150)
+    fig.savefig(FIGURES / "pca_qc.png", dpi=600)
     plt.close(fig)
     logger.info("Saved figures/pca_qc.png")
 

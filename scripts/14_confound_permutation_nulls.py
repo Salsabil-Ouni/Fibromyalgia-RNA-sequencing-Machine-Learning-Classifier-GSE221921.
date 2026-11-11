@@ -132,7 +132,7 @@ def main():
         ax.set_title(f"{title}\nempirical p = {p_value:.4f}")
         ax.legend(fontsize=8)
     fig.tight_layout()
-    fig.savefig(FIGURES / "permutation_null_confound_checks.png", dpi=150)
+    fig.savefig(FIGURES / "permutation_null_confound_checks.png", dpi=600)
     plt.close(fig)
     logger.info("Wrote results/permutation_null_female_only.csv, "
                 "results/permutation_null_autosomal_only.csv, "

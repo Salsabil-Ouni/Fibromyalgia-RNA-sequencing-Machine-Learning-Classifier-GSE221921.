@@ -41,6 +41,14 @@ GENE_SETS = pathway_crosscheck.GENE_SETS
 
 logger = get_logger("18_gsea_pathway_check")
 
+# gseapy's GSEAPlot.savefig() hardcodes dpi=300 for the non-interactive save path;
+# raise it to meet the journal's artwork resolution requirement for combination
+# line/halftone figures (minimum 500 dpi).
+def _gseaplot_savefig_highdpi(self, bbox_inches="tight", dpi=600):
+    self._canvas.print_figure(self.ofname, bbox_inches=bbox_inches, dpi=dpi)
+
+gp.plot.GSEAPlot.savefig = _gseaplot_savefig_highdpi
+
 
 def main():
     expr = pd.read_csv(DATA_PROCESSED / "expression_log2_filtered.csv", index_col=0)
@@ -115,7 +123,7 @@ def main():
         combo = Image.new("RGB", (im2.width + im3.width, h), "white")
         combo.paste(im2, (0, 0))
         combo.paste(im3, (im2.width, 0))
-        combo.save(FIGURES / "gsea_fm2_fm3.png")
+        combo.save(FIGURES / "gsea_fm2_fm3.png", dpi=(600, 600))
         logger.info("Wrote figures/gsea_fm2_fm3.png (composite FM2/FM3 enrichment plot)")
     except Exception as e:
         logger.warning("Could not build composite FM2/FM3 GSEA figure: %s", e)
