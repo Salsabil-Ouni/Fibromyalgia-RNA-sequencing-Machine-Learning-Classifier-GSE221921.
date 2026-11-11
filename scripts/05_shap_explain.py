@@ -15,7 +15,7 @@ results/performance_summary.csv (chosen automatically, not hand-picked).
 
 Outputs:
   figures/shap_summary.png
-  figures/shap_dependence_top_genes.png
+  figures/shap_dependence_<GENE>.png    (one independent file per top gene)
   results/shap_feature_importance.csv   (ranked genes by mean |SHAP|)
 """
 import numpy as np
